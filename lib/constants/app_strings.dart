@@ -32,4 +32,8 @@ static const reenterPassLabel = 'Confirm password';
 //snackbar
 static const somethingWentWrong = 'somethingWentWrong';
 
+//validators
+static const requiredMessage = 'This field is required' ;
+static const invalidEmail = 'invalid email';
+static const passwordNotSame = 'password does not match';
 }
