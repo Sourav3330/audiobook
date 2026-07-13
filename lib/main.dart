@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import 'firebase_options.dart';
 
 void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.cupertino,
       getPages: AppPages.routes,
       initialBinding: IntialBinding(),
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.splash,
+      home: SplashView(),
 
     );
   }

@@ -7,46 +7,24 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body:
-    Column(
-     mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-
-            child: Obx(()=>
-                Stepper(steps: [
-                Step(title: Text('Complete Profile'), content: Text('this is the first step')),
-                Step(title: Text('Add Address'), content: Text('this is the second step')),
-                Step(title: Text('Add Company Details'), content: Text('this is the third step')),
-                Step(title: Text('Add Bank Account'), content: Text('this is the fourth step')),
-                Step(title: Text('Complete Final Step'), content: Text('this is the fifth step')),
-              ],
-                onStepTapped: (step){
-                currentindex.value = step;
-                },
-                currentStep: currentindex.value,
-
-                  onStepContinue: (){
-                  if (currentindex.value<4) {
-                    currentindex.value++;
-                  }
-                  },
-                  onStepCancel: (){
-                  if(currentindex.value>0) {
-                    currentindex.value--;
-                  }
-                  },
-                 ),
+    return Scaffold(
+      body:
+      Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 200,),
+            SizedBox(
+              width: 150,
+              height: 150,
+              child: Image.asset('assets/icon/app_logo.png'),
             ),
-
-
+            SizedBox(height: 290,),
+            SizedBox( child: CircularProgressIndicator()),
+          ],
         ),
-        CircularProgressIndicator(
-
-        )
-      ],
-    )
-    ,
+      ),
     );
   }
 }

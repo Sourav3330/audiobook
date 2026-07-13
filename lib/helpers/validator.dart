@@ -22,13 +22,20 @@ class Validator {
   }
 
   static String? password(String? pass) {
-    return required(pass);
+    final error = required(pass);
+    if(error!=null){
+      return error;
+    }
+    final v = pass ?? '';
+    if(v.length<8){
+      return AppStrings.passwordTooShort;
+    }
+    return null;
   }
 
   static String? confirmPassword(String? password, String? confirmPassword) {
     final error = required(
       confirmPassword,
-      message: AppStrings.passwordNotSame,
     );
     if (error != null) return error;
 

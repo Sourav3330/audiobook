@@ -2,6 +2,8 @@ import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/modules/auth/binding/auth_binding.dart';
 import 'package:audio_book/modules/auth/views/login_view.dart';
 import 'package:audio_book/modules/auth/views/signup_view.dart';
+import 'package:audio_book/modules/shell/binding/shell_binding.dart';
+import 'package:audio_book/modules/shell/view/shell_view.dart';
 import 'package:audio_book/modules/splash/controllers/splash_controller.dart';
 import 'package:audio_book/modules/splash/views/splash_view.dart';
 import 'package:get/get.dart';
@@ -26,6 +28,11 @@ class AppPages {
       name: AppRoutes.signup,
       page: () => SignupView(),
       binding: AuthBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.shell,
+      page: () => ShellView(),
+      binding: ShellBinding(),
     ),
   ];
 }

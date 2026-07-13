@@ -1,3 +1,4 @@
+import 'package:audio_book/common%20widget/common_bottom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,10 @@ class AuthScaffold extends StatelessWidget {
   final String bottomLoginOrSignupButtonText;
   final String bottomLoginOrSignupMessage;
   final String buttonText;
+  final bool isLoading;
   final VoidCallback buttonOnTap;
   final VoidCallback onTapLoginSignup;
+  final Widget bottomButtonWidget;
 
 
   const AuthScaffold({
@@ -29,7 +32,9 @@ class AuthScaffold extends StatelessWidget {
     required this.bottomLoginOrSignupMessage,
     required this.buttonText,
     required this.buttonOnTap,
+    required this.isLoading,
     required this.onTapLoginSignup,
+    required this.bottomButtonWidget,
   });
 
   @override
@@ -67,26 +72,28 @@ class AuthScaffold extends StatelessWidget {
                       children: [
                         cardChild,
                         SizedBox(height: 20),
-                        TextButton(
-                          onPressed:buttonOnTap,
-                          child: Container(
-                            width:double.infinity,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: AppColors.primary,
-                            ),
-                            child: Center(
-                              child: Text(
-                                buttonText,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        bottomButtonWidget,
+                        // CommonBottomButton(text: buttonText, onTap: buttonOnTap, isLoading: isLoading),
+                        // TextButton(
+                        //   onPressed:buttonOnTap,
+                        //   child: Container(
+                        //     width:double.infinity,
+                        //     height: 50,
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       color: AppColors.primary,
+                        //     ),
+                        //     child: Center(
+                        //       child: Text(
+                        //         buttonText,
+                        //         style: TextStyle(
+                        //           fontSize: 15,
+                        //           color: Colors.white,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         Column(
                           children: [
                             SizedBox(height: 30),

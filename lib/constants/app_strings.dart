@@ -18,6 +18,7 @@ static const loginBottomButtonText = 'Signup';
 static const loginButtonText = 'Login';
 
 
+
 //signup screen text
 static const hintUsername = "username";
 static const labelUsername = "username";
@@ -27,6 +28,9 @@ static const signupBottomMessage= 'Already have an account? ';
 static const signupBottomButtonText = 'Login';
 static const signupButtonText = 'Signup';
 static const reenterPassLabel = 'Confirm password';
+static const accountCreated = 'Account created';
+static const passwordTooShort = 'Password must be at least 8 characters';
+
 
 
 //snackbar

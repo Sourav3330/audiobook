@@ -1,6 +1,9 @@
+import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/modules/auth/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class AuthService {
   AuthService({FirebaseAuth? auth, FirebaseFirestore? db})
@@ -11,7 +14,7 @@ class AuthService {
   final FirebaseFirestore _db;
 
   User? get currentUser => _auth.currentUser;
-  bool? get isLoggedIn => currentUser != null;
+  bool get isLoggedIn => currentUser != null;
 
   static const String usersCollection = 'users';
   CollectionReference<Map<String, dynamic>> get _users =>
@@ -29,8 +32,8 @@ class AuthService {
       );
       final uid = cred.user!.uid;
       UserModal user = UserModal.fromMap(uid, {
-        email: email,
-        password: password,
+        'name':name,
+        'email': email,
       });
 
       await _users.doc(uid).set(user.toMap());
@@ -56,6 +59,7 @@ class AuthService {
   }
   Future<void>signOut()async{
     _auth.signOut();
+    Get.offAllNamed(AppRoutes.login);
   }
 
   String _mapAuthError(FirebaseAuthException e) {

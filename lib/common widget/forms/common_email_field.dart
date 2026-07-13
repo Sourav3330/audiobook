@@ -1,6 +1,7 @@
 import 'package:audio_book/common%20widget/forms/common_pass_field.dart';
 import 'package:audio_book/common%20widget/forms/common_text_field.dart';
 import 'package:audio_book/constants/app_strings.dart';
+import 'package:audio_book/helpers/validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,10 @@ class CommonEmailField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final FocusNode focusNode;
-  final FormFieldValidator validator;
+  final String? Function(String?)? validator;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
+  final Iterable<String>? autofillHints;
 
   const CommonEmailField({
     super.key,
@@ -20,10 +22,12 @@ class CommonEmailField extends StatelessWidget {
     required this.focusNode,
      this.prefixIcon,
      this.suffixIcon,
+     this.autofillHints,
   });
   @override
   Widget build(BuildContext context) {
     return CommonTextField(
+      autofillHints:autofillHints ,
       prefixIcon: prefixIcon,
       label: AppStrings.emailFieldLabel.toUpperCase(),
       hintText: AppStrings.emailFieldHint,

@@ -8,8 +8,9 @@ class CommonTextField extends StatelessWidget {
   final TextInputAction textInputAction;
   final FocusNode? focusNode;
   final IconData? suffixIcon;
-  final FormFieldValidator? validator;
+  final String? Function(String?)? validator;
   final IconData? prefixIcon;
+  final Iterable<String>? autofillHints;
 
   const CommonTextField({
     super.key,
@@ -17,9 +18,10 @@ class CommonTextField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     required this.textInputAction,
+    required this.validator,
+     this.autofillHints,
     this.focusNode,
     this.suffixIcon,
-    this.validator,
     this.prefixIcon,
   });
   @override
@@ -32,6 +34,7 @@ class CommonTextField extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 15),
           child: TextFormField(
+            autofillHints: autofillHints,
             validator: validator,
             controller: controller,
             textInputAction: textInputAction,

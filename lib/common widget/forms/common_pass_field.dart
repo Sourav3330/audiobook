@@ -8,9 +8,10 @@ class CommonPassField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final FocusNode focusNode;
-  final FormFieldValidator validator;
+  final String? Function(String?)? validator;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
+  final Iterable<String>? autofillHints;
 
   const CommonPassField({
     super.key,
@@ -20,10 +21,12 @@ class CommonPassField extends StatelessWidget {
     required this.focusNode,
      this.prefixIcon,
      this.suffixIcon,
+     this.autofillHints,
   });
   @override
   Widget build(BuildContext context) {
     return CommonTextField(
+      autofillHints: autofillHints,
       prefixIcon: prefixIcon,
       label: AppStrings.passLabel.toUpperCase(),
       hintText: AppStrings.paasHint,
