@@ -17,8 +17,6 @@ static const loginBottomMessage= 'Don`t have an account? ';
 static const loginBottomButtonText = 'Signup';
 static const loginButtonText = 'Login';
 
-
-
 //signup screen text
 static const hintUsername = "username";
 static const labelUsername = "username";
@@ -31,8 +29,6 @@ static const reenterPassLabel = 'Confirm password';
 static const accountCreated = 'Account created';
 static const passwordTooShort = 'Password must be at least 8 characters';
 
-
-
 //snackbar
 static const somethingWentWrong = 'somethingWentWrong';
 
@@ -40,4 +36,9 @@ static const somethingWentWrong = 'somethingWentWrong';
 static const requiredMessage = 'This field is required' ;
 static const invalidEmail = 'invalid email';
 static const passwordNotSame = 'password does not match';
+
+//discover Screen
+static const newReleases = 'New Releases';
+static const recommendedForYou = 'Recommended for you';
+static const seeAll = 'See all';
 }

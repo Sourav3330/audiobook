@@ -17,7 +17,7 @@ static ThemeData get light{
   final base = ThemeData(
     scaffoldBackgroundColor: AppColors.scaffoldBg,
     colorScheme: scheme,
-    textTheme: GoogleFonts.interTextTheme(),
+    textTheme: GoogleFonts.abhayaLibreTextTheme(),
   );
   return base.copyWith(
 

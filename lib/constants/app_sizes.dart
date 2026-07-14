@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /// Spacing, radius, and field-sizing constants. Shared across every module so
 /// visual rhythm stays consistent.
 class AppSizes {
@@ -24,7 +26,7 @@ class AppSizes {
 
   // Navigation / app bar
   static const double bottomNavHeight = 72;
-  static const double appBarHeight = 64;
+  static const double appBarHeight = kToolbarHeight;
 
   // Form field
   static const double inputHeight = 56;
@@ -34,16 +36,14 @@ class AppSizes {
 
   // Card
   static const double cardElevation = 0;
+  static const double bookCardHeightSm = 70;
+  static const double bookCardWidthSm = 70;
 
-  // Content max-widths — keep layouts readable on wide tablets.
-  static const double authMaxWidth = 460;
-  static const double formMaxWidth = 920;
-  static const double contentMaxWidth = 1100;
-  static const double dialogMaxWidth = 480;
+  static const double verticalCardHeight = 250;
+  static const double verticalCardWidth = 150;
+  static const double verticalCardTitleWidth = 130;
+  static const double verticalCardRowHeight = 320;
 
-  // Breakpoints
-  static const double phoneMax = 600;
-  static const double tabletMax = 1024;
 
   // Avatars / icons
   static const double avatarSm = 32;

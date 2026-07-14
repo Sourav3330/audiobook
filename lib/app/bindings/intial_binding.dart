@@ -1,3 +1,4 @@
+import 'package:audio_book/data/repositories/book_repository.dart';
 import 'package:audio_book/modules/auth/controller/auth_controller.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,7 @@ class IntialBinding extends Bindings {
     if(Get.isRegistered<AuthController>()){
       Get.put(AuthController());
     }
+    Get.lazyPut<BookRepository>(()=>BookRepository());
   }
 
 }

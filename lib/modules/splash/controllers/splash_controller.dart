@@ -10,7 +10,7 @@ void onReady() {
     nextScreen();
   }
 Future<void> nextScreen() async {
-  await Future<void>.delayed(Duration(milliseconds: 1000));
+  //await Future<void>.delayed(Duration(milliseconds: 1000));
  final next =  auth.isLoggedIn ? AppRoutes.shell:AppRoutes.login;
  Get.offAllNamed(next);
 }
