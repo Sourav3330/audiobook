@@ -1,3 +1,4 @@
+import 'package:audio_book/data/dumydata/banner_data.dart';
 import 'package:audio_book/data/dumydata/category_data.dart';
 import 'package:audio_book/data/models/book_model.dart';
 import 'package:audio_book/data/models/category_model.dart';
@@ -16,5 +17,9 @@ class BookRepository {
   }
   List<BookModel> getRecommended(){
     return recommended;
+  }
+
+  List<BookModel> getBanners(){
+    return banners;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/modules/activity/view/activity_view.dart';
 import 'package:audio_book/modules/discover/view/discover_view.dart';
 import 'package:audio_book/modules/library/view/library_view.dart';
@@ -24,6 +25,7 @@ class ShellView extends GetView<ShellController> {
           children: pages,
         ),
         bottomNavigationBar: NavigationBar(
+          height: AppSizes.bottomNavHeight,
           selectedIndex: controller.currentIndex.value,
           onDestinationSelected: (value) {
             controller.changeIndex(value);

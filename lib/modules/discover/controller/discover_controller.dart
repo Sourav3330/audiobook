@@ -10,6 +10,7 @@ class DiscoverController extends GetxController {
   final RxList<BookModel> filtered = <BookModel>[].obs;
   final RxList<BookModel> newReleases = <BookModel>[].obs;
   final RxList<BookModel> recommended = <BookModel>[].obs;
+  final RxList<BookModel> banners = <BookModel>[].obs;
   final RxList<CategoryModel> categories = <CategoryModel>[].obs;
 
   @override
@@ -18,6 +19,7 @@ class DiscoverController extends GetxController {
     loadAllBooks();
     loadNewRelease();
     loadRecommended();
+    loadBanners();
   }
 
   void loadAllBooks() {
@@ -49,5 +51,9 @@ class DiscoverController extends GetxController {
 
   void loadCategories() {
     categories.assignAll(repository.getCategory());
+  }
+
+  void loadBanners() {
+     banners.assignAll(repository.getBanners());
   }
 }
