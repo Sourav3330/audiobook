@@ -2,11 +2,9 @@ import 'package:audio_book/common%20widget/common_appbar.dart';
 import 'package:audio_book/common%20widget/discover_banner.dart';
 import 'package:audio_book/common%20widget/horizontal_bookcard.dart';
 import 'package:audio_book/common%20widget/vertical_bookcard.dart';
-import 'package:audio_book/constants/app_colors.dart';
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/constants/app_strings.dart';
 import 'package:audio_book/modules/discover/controller/discover_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../app/theme/text_styles.dart';
@@ -28,8 +26,11 @@ class DiscoverView extends GetView<DiscoverController> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(0),
-                  child:
-                  DiscoverBanner(banners: controller.banners),
+                  child: DiscoverBanner(
+                    banners: controller.banners,
+                    detailOnTap: controller.viewSong,
+                    playOnTap: () {},
+                  ),
                 ),
                 SizedBox(height: AppSpacing.md),
                 Padding(

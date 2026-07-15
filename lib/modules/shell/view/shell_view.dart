@@ -6,6 +6,7 @@ import 'package:audio_book/modules/profile/view/profile_view.dart';
 import 'package:audio_book/modules/shell/controller/shell_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShellView extends GetView<ShellController> {
   final List<Widget> pages = [
@@ -25,6 +26,13 @@ class ShellView extends GetView<ShellController> {
           children: pages,
         ),
         bottomNavigationBar: NavigationBar(
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            return TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+            );
+          }),
           height: AppSizes.bottomNavHeight,
           selectedIndex: controller.currentIndex.value,
           onDestinationSelected: (value) {

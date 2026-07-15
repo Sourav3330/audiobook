@@ -21,4 +21,9 @@ static const Color bannerTitle = Color(0xFFF0DCF4);
 static const Color featuredContainerBorder = Color(0xFF775660);
 static const Color featuredContainerColor = Color(0xFF422F36);
 static const Color featuredContainerTextColor = Color(0xFFFBB3C5);
+
+// song Detail
+  static const Color songDetailAuthor = Color(0xFF645D53);
+  static const Color songDetailLikeSurface = Color(0xFFE8E2D8);
+
 }

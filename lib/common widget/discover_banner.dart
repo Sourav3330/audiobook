@@ -1,3 +1,4 @@
+import 'package:audio_book/common%20widget/featuredtoday_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../app/theme/text_styles.dart';
@@ -7,7 +8,13 @@ import '../data/models/book_model.dart';
 
 class DiscoverBanner extends StatelessWidget {
   final List<BookModel> banners;
-  const DiscoverBanner({super.key, required this.banners});
+  final void Function(BookModel book) detailOnTap;
+  final VoidCallback playOnTap;
+  const DiscoverBanner({super.key,
+    required this.banners,
+    required this.detailOnTap,
+    required this.playOnTap,
+  });
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
@@ -34,28 +41,7 @@ class DiscoverBanner extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: AppColors.featuredContainerBorder,
-                          width: 2,
-                        ),
-                        color: AppColors.featuredContainerColor,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(2),
-                        child: Center(
-                          child: Text(
-                            "Featured today",
-                            style: TextStyle(
-                              color: AppColors.featuredContainerTextColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    FeaturedTodayText(),
                     SizedBox(
                       width: 350,
                       child: Text(
@@ -77,41 +63,49 @@ class DiscoverBanner extends StatelessWidget {
                     SizedBox(height: AppSpacing.lg),
                     Row(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(
-                              width: 1,
-                              color: AppColors.yelloPrimary,
+                        InkWell(
+                          onTap:() {
+                            detailOnTap(banner);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
+                                width: 1,
+                                color: AppColors.yelloPrimary,
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Center(
-                              child: Text(
-                                "View Details",
-                                style: TextStyle(color: AppColors.yelloPrimary),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Center(
+                                child: Text(
+                                  "View Details",
+                                  style: TextStyle(color: AppColors.yelloPrimary),
+                                ),
                               ),
                             ),
                           ),
                         ),
                         SizedBox(width: 10),
-                        Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(width: 1),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Center(
-                              child: Text(
-                                "Play Now",
-                                style: TextStyle(
-                                  color: AppColors.featuredContainerTextColor,
+                        InkWell(
+                          onTap: playOnTap,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: AppColors.primary,
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(width: 1),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Center(
+                                child: Text(
+                                  "Play Now",
+                                  style: TextStyle(
+                                    color: AppColors.featuredContainerTextColor,
+                                  ),
                                 ),
                               ),
                             ),
