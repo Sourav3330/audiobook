@@ -42,4 +42,7 @@ static const newReleases = 'New Releases';
 static const recommendedForYou = 'Recommended for you';
 static const seeAll = 'See all';
 static const featuredToday = 'Featured today';
+
+//library Screen
+static const searchCategory = 'Search Categories....';
 }

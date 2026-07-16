@@ -22,4 +22,7 @@ class BookRepository {
   List<BookModel> getBanners(){
     return banners;
   }
+  List <BookModel> getBooksByCategory( String category){
+    return allBooks.where((book)=>book.category==category).toList();
+  }
 }

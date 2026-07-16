@@ -10,13 +10,16 @@ class VerticalBookCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: AppSizes.verticalCardHeight,
-          width: AppSizes.verticalCardWidth,
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Image.network(book.cover, fit: BoxFit.cover),
-          ),
+        // SizedBox(
+        //   height: AppSizes.verticalCardHeight,
+        //   width: AppSizes.verticalCardWidth,
+        //   child:
+          Expanded(
+            child: Card(
+              clipBehavior: Clip.antiAlias,
+              child: Image.network(book.cover, fit: BoxFit.cover),
+            ),
+          //),
         ),
         Padding(
           padding: const EdgeInsets.only(left:AppSizes.padding4),

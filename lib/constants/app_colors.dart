@@ -26,4 +26,8 @@ static const Color featuredContainerTextColor = Color(0xFFFBB3C5);
   static const Color songDetailAuthor = Color(0xFF645D53);
   static const Color songDetailLikeSurface = Color(0xFFE8E2D8);
 
+
+  // library page
+  static const Color categoryTextColor = Color(0xFFF0DCF4);
+
 }

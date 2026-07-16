@@ -4,6 +4,8 @@ import 'package:audio_book/modules/auth/views/login_view.dart';
 import 'package:audio_book/modules/auth/views/signup_view.dart';
 import 'package:audio_book/modules/discover/bindings/songdetail_binding.dart';
 import 'package:audio_book/modules/discover/view/song_detail.dart';
+import 'package:audio_book/modules/library/bindings/cate_data_binding.dart';
+import 'package:audio_book/modules/library/view/cate_data_view.dart';
 import 'package:audio_book/modules/shell/binding/shell_binding.dart';
 import 'package:audio_book/modules/shell/view/shell_view.dart';
 import 'package:audio_book/modules/splash/controllers/splash_controller.dart';
@@ -40,6 +42,11 @@ class AppPages {
         name: AppRoutes.songDetail,
         page: () => SongDetail(),
       binding: SongDetailBinding()
+    ),
+    GetPage(
+        name: AppRoutes.cateDetail,
+        page: () => CateDataView(),
+      binding: CateDataBinding()
     ),
   ];
 }
