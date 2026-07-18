@@ -7,7 +7,7 @@ const List<BookModel> allBooks =
     title: 'Atomic Habits',
     author: 'James Clear',
     cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    totalChapters: 5,
     category: 'Self Help',
     description:
         'Tiny changes, remarkable results. Learn how small daily habits lead to extraordinary success.',
@@ -20,7 +20,7 @@ const List<BookModel> allBooks =
     title: 'Deep Work',
     author: 'Cal Newport',
     cover: 'https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    totalChapters: 5,
     category: 'Productivity',
     description:
         'Discover strategies to improve focus and produce high-quality work without distractions.',
@@ -33,7 +33,7 @@ const List<BookModel> allBooks =
     title: 'Rich Dad Poor Dad',
     author: 'Robert T. Kiyosaki',
     cover: 'https://covers.openlibrary.org/b/isbn/9781612681139-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    totalChapters: 5,
     category: 'Finance',
     description:
         'A classic book that changes the way you think about money, investing, and financial freedom.',
@@ -46,7 +46,7 @@ const List<BookModel> allBooks =
     title: 'The Psychology of Money',
     author: 'Morgan Housel',
     cover: 'https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    totalChapters: 5,
     category: 'Finance',
     description:
         'Understand why people make financial decisions and how behavior matters more than knowledge.',
@@ -59,7 +59,7 @@ const List<BookModel> allBooks =
     title: 'The Alchemist',
     author: 'Paulo Coelho',
     cover: 'https://covers.openlibrary.org/b/isbn/9780061122415-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+    totalChapters: 5,
     category: 'Fiction',
     description:
         'A timeless story about following your dreams and discovering your personal legend.',
@@ -71,7 +71,7 @@ const List<BookModel> allBooks =
     title: 'The Mountain Is You',
     author: 'Brianna Wiest',
     cover: 'https://covers.openlibrary.org/b/isbn/9781949759228-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    totalChapters: 5,
     category: 'Self Help',
     description:
         'Learn how self-sabotage works and transform it into self-mastery.',
@@ -84,7 +84,7 @@ const List<BookModel> allBooks =
     title: 'Think Like a Monk',
     author: 'Jay Shetty',
     cover: 'https://covers.openlibrary.org/b/isbn/9781982134488-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    totalChapters: 5,
     category: 'Self Help',
     description:
         'Train your mind for peace and purpose using timeless monk wisdom.',
@@ -97,7 +97,7 @@ const List<BookModel> allBooks =
     title: 'The 5 AM Club',
     author: 'Robin Sharma',
     cover: 'https://covers.openlibrary.org/b/isbn/9781443456627-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    totalChapters: 3,
     category: 'Productivity',
     description:
         'Own your mornings to elevate productivity and personal growth.',
@@ -110,7 +110,7 @@ const List<BookModel> allBooks =
     title: 'Ikigai',
     author: 'Héctor García',
     cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    totalChapters: 3,
     category: 'Lifestyle',
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
@@ -122,7 +122,8 @@ const List<BookModel> allBooks =
     title: 'The Subtle Art of Not Giving a F*ck',
     author: 'Mark Manson',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+
+    totalChapters: 3,
     category: 'Self Help',
     description:
         'A refreshing approach to living a better life by focusing on what truly matters.',
@@ -135,7 +136,8 @@ const List<BookModel> allBooks =
     title: 'The Silent Patient',
     author: 'Alex Michaelides',
     cover: 'https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+
+    totalChapters: 3,
     category: 'Thriller',
     description:
         'A psychological thriller full of suspense and unexpected twists.',
@@ -148,7 +150,8 @@ const List<BookModel> allBooks =
     title: 'The Midnight Library',
     author: 'Matt Haig',
     cover: 'https://covers.openlibrary.org/b/isbn/9780525559474-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
+
+    totalChapters: 3,
     category: 'Fiction',
     description:
         'A magical library lets Nora explore the lives she could have lived.',
@@ -161,7 +164,8 @@ const List<BookModel> allBooks =
     title: 'Cant Hurt Me',
     author: 'David Goggins',
     cover: 'https://covers.openlibrary.org/b/isbn/9781544512273-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3',
+
+    totalChapters: 3,
     category: 'Motivation',
     description:
         'An inspiring memoir about discipline, resilience, and mental toughness.',
@@ -174,7 +178,8 @@ const List<BookModel> allBooks =
     title: 'The Power of Now',
     author: 'Eckhart Tolle',
     cover: 'https://covers.openlibrary.org/b/isbn/9781577314806-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3',
+
+    totalChapters: 3,
     category: 'Spirituality',
     description:
         'Learn to live fully in the present moment and free yourself from unnecessary suffering.',
@@ -187,7 +192,8 @@ const List<BookModel> allBooks =
     title: 'The Lean Startup',
     author: 'Eric Ries',
     cover: 'https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3',
+
+    totalChapters: 3,
     category: 'Business',
     description:
         'A practical guide for entrepreneurs to build successful startups.',
@@ -202,7 +208,7 @@ const List<BookModel> recommended =
     title: 'The Mountain Is You',
     author: 'Brianna Wiest',
     cover: 'https://covers.openlibrary.org/b/isbn/9781949759228-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    totalChapters: 3,
     category: 'Self Help',
     description:
         'Learn how self-sabotage works and transform it into self-mastery.',
@@ -215,7 +221,7 @@ const List<BookModel> recommended =
     title: 'Think Like a Monk',
     author: 'Jay Shetty',
     cover: 'https://covers.openlibrary.org/b/isbn/9781982134488-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    totalChapters: 2,
     category: 'Self Help',
     description:
         'Train your mind for peace and purpose using timeless monk wisdom.',
@@ -228,7 +234,7 @@ const List<BookModel> recommended =
     title: 'The 5 AM Club',
     author: 'Robin Sharma',
     cover: 'https://covers.openlibrary.org/b/isbn/9781443456627-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    totalChapters: 2,
     category: 'Productivity',
     description:
         'Own your mornings to elevate productivity and personal growth.',
@@ -241,7 +247,7 @@ const List<BookModel> recommended =
     title: 'Ikigai',
     author: 'Héctor García',
     cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    totalChapters: 2,
     category: 'Lifestyle',
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
@@ -253,7 +259,8 @@ const List<BookModel> recommended =
     title: 'The Subtle Art of Not Giving a F*ck',
     author: 'Mark Manson',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+
+    totalChapters: 2,
     category: 'Self Help',
     description:
         'A refreshing approach to living a better life by focusing on what truly matters.',
@@ -266,7 +273,8 @@ const List<BookModel> recommended =
     title: 'The Silent Patient',
     author: 'Alex Michaelides',
     cover: 'https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+
+    totalChapters: 2,
     category: 'Thriller',
     description:
         'A psychological thriller full of suspense and unexpected twists.',
@@ -283,7 +291,7 @@ const List<BookModel> newReleases =
     title: 'The Mountain Is You',
     author: 'Brianna Wiest',
     cover: 'https://covers.openlibrary.org/b/isbn/9781949759228-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    totalChapters: 2,
     category: 'Self Help',
     description:
         'Learn how self-sabotage works and transform it into self-mastery.',
@@ -296,7 +304,7 @@ const List<BookModel> newReleases =
     title: 'Think Like a Monk',
     author: 'Jay Shetty',
     cover: 'https://covers.openlibrary.org/b/isbn/9781982134488-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    totalChapters: 2,
     category: 'Self Help',
     description:
         'Train your mind for peace and purpose using timeless monk wisdom.',
@@ -309,7 +317,7 @@ const List<BookModel> newReleases =
     title: 'The 5 AM Club',
     author: 'Robin Sharma',
     cover: 'https://covers.openlibrary.org/b/isbn/9781443456627-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    totalChapters: 2,
     category: 'Productivity',
     description:
         'Own your mornings to elevate productivity and personal growth.',
@@ -322,7 +330,7 @@ const List<BookModel> newReleases =
     title: 'Ikigai',
     author: 'Héctor García',
     cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    totalChapters: 2,
     category: 'Lifestyle',
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
@@ -334,7 +342,8 @@ const List<BookModel> newReleases =
     title: 'The Subtle Art of Not Giving a F*ck',
     author: 'Mark Manson',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+
+    totalChapters: 2,
     category: 'Self Help',
     description:
         'A refreshing approach to living a better life by focusing on what truly matters.',
@@ -347,7 +356,8 @@ const List<BookModel> newReleases =
     title: 'The Silent Patient',
     author: 'Alex Michaelides',
     cover: 'https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+
+    totalChapters: 2,
     category: 'Thriller',
     description:
         'A psychological thriller full of suspense and unexpected twists.',
@@ -360,7 +370,8 @@ const List<BookModel> newReleases =
     title: 'The Midnight Library',
     author: 'Matt Haig',
     cover: 'https://covers.openlibrary.org/b/isbn/9780525559474-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
+
+    totalChapters: 2,
     category: 'Fiction',
     description:
         'A magical library lets Nora explore the lives she could have lived.',

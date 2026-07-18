@@ -5,10 +5,10 @@ class BookModel {
   final String title;
   final String author;
   final String cover;
-  final String audioUrl;
   final String category;
   final String description;
   final Duration duration;
+  final int totalChapters;
   final double rating;
 
   const BookModel({
@@ -16,24 +16,24 @@ class BookModel {
     required this.title,
     required this.author,
     required this.cover,
-    required this.audioUrl,
     required this.category,
     required this.description,
     required this.duration,
     required this.rating,
+    required this.totalChapters,
   });
 
-  factory BookModel.fromMap( String uid,Map<String,dynamic>map){
+  factory BookModel.fromMap(String uid, Map<String, dynamic> map) {
     return BookModel(
-        id:uid,
-        title: map['title'],
-        author: map['author'],
-        cover: map['cover'],
-        audioUrl: map['audioUrl'],
-        category: map['category'],
-        description: map['description'],
-        duration: map['duration'],
-        rating: map['rating']
+      id: uid,
+      title: map['title'],
+      author: map['author'],
+      cover: map['cover'],
+      category: map['category'],
+      description: map['description'],
+      duration: map['duration'],
+      rating: map['rating'],
+      totalChapters: map['chapters'],
     );
   }
 }

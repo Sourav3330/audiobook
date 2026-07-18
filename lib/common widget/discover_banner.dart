@@ -9,7 +9,7 @@ import '../data/models/book_model.dart';
 class DiscoverBanner extends StatelessWidget {
   final List<BookModel> banners;
   final void Function(BookModel book) detailOnTap;
-  final VoidCallback playOnTap;
+  final void Function(BookModel book, String bookId) playOnTap;
   const DiscoverBanner({super.key,
     required this.banners,
     required this.detailOnTap,
@@ -90,7 +90,9 @@ class DiscoverBanner extends StatelessWidget {
                         ),
                         SizedBox(width: 10),
                         InkWell(
-                          onTap: playOnTap,
+                          onTap: (){
+                            playOnTap(banner,banner.id);
+                          },
                           child: Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.rectangle,

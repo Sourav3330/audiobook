@@ -29,5 +29,11 @@ static const Color featuredContainerTextColor = Color(0xFFFBB3C5);
 
   // library page
   static const Color categoryTextColor = Color(0xFFF0DCF4);
+  //player
+  static const Color chapterCard = Color(0xFF5A4D52);
+  static const Color chapterCardTitle = Color(0xFFDEDBDC);
+  static const Color playerAuthor = Color(0xFF755B5D);
+
+
 
 }

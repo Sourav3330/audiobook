@@ -2,11 +2,10 @@ import '../models/book_model.dart';
 
 const List<BookModel>banners = [
   BookModel(
-    id: '7',
+    id: '1',
     title: 'Think Like a Monk',
     author: 'Jay Shetty',
-    cover: 'https://covers.openlibrary.org/b/isbn/9781982134488-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    cover: 'https://covers.openlibrary.org/b/isbn/9781982134488-L.jpg',totalChapters: 6,
     category: 'Self Help',
     description:
     'Train your mind for peace and purpose using timeless monk wisdom.',
@@ -19,7 +18,7 @@ const List<BookModel>banners = [
     title: 'The Silent Patient',
     author: 'Alex Michaelides',
     cover: 'https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+    totalChapters: 6,
     category: 'Thriller',
     description:
     'A psychological thriller full of suspense and unexpected twists.',
@@ -32,8 +31,7 @@ const List<BookModel>banners = [
     id: '9',
     title: 'Ikigai',
     author: 'Héctor García',
-    cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',totalChapters: 6,
     category: 'Lifestyle',
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
@@ -45,7 +43,7 @@ const List<BookModel>banners = [
     title: 'The Subtle Art of Not Giving a F*ck',
     author: 'Mark Manson',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+    totalChapters: 6,
     category: 'Self Help',
     description:
     'A refreshing approach to living a better life by focusing on what truly matters.',

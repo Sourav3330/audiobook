@@ -2,11 +2,14 @@ import 'package:audio_book/app/routes/app_pages.dart';
 import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/data/models/book_model.dart';
 import 'package:audio_book/data/models/category_model.dart';
+import 'package:audio_book/data/models/chapter_model.dart';
 import 'package:audio_book/data/repositories/book_repository.dart';
+import 'package:audio_book/services/audio_service.dart';
 import 'package:get/get.dart';
 
 class DiscoverController extends GetxController {
   final BookRepository repository = Get.find();
+  final AudioService audioService = Get.find();
 
   final RxList<BookModel> allBooks = <BookModel>[].obs;
   final RxList<BookModel> filtered = <BookModel>[].obs;
@@ -23,9 +26,9 @@ class DiscoverController extends GetxController {
     loadRecommended();
     loadBanners();
   }
-  
-  void viewSong(BookModel book){
-    Get.toNamed(AppRoutes.songDetail,arguments: book);
+
+  void viewSong(BookModel book) {
+    Get.toNamed(AppRoutes.songDetail, arguments: book);
   }
 
   void loadAllBooks() {
@@ -60,6 +63,11 @@ class DiscoverController extends GetxController {
   }
 
   void loadBanners() {
-     banners.assignAll(repository.getBanners());
+    banners.assignAll(repository.getBanners());
+  }
+
+  Future<void> playBook(BookModel book, String bookId)async {
+    Get.toNamed(AppRoutes.player);
+    await audioService.playBook(book: book, chapters: repository.getChapters(bookId));
   }
 }

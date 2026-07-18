@@ -29,7 +29,8 @@ class DiscoverView extends GetView<DiscoverController> {
                   child: DiscoverBanner(
                     banners: controller.banners,
                     detailOnTap: controller.viewSong,
-                    playOnTap: () {},
+                    playOnTap:
+                      controller.playBook,
                   ),
                 ),
                 SizedBox(height: AppSpacing.md),
