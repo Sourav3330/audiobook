@@ -14,7 +14,6 @@ final BookRepository repository = Get.find<BookRepository>();
   }
   void loadCategories() {
   categories.assignAll(repository.getCategory());
-
   }
   void navigateToCategoryData(CategoryModel category){
    Get.toNamed(AppRoutes.cateDetail,arguments:category

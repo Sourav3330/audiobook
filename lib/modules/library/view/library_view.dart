@@ -1,8 +1,10 @@
 import 'package:audio_book/common%20widget/commonSearchField.dart';
 import 'package:audio_book/common%20widget/common_appbar.dart';
+import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/constants/app_colors.dart';
 import 'package:audio_book/constants/app_strings.dart';
 import 'package:audio_book/modules/library/controller/library_controller.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,10 +50,8 @@ class LibraryView extends GetView<LibraryController> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
-                                child: Image.network(
-                                  data.imageUrl,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: CommonNetworkImage(imageUrl:  data.imageUrl,
+                                 )
                               ),
                               Container(
                                 decoration: const BoxDecoration(

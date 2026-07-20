@@ -1,3 +1,4 @@
+import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/common%20widget/common_appbar.dart';
 import 'package:audio_book/common%20widget/featuredtoday_text.dart';
 import 'package:audio_book/constants/app_colors.dart';
@@ -153,7 +154,10 @@ class SongDetail extends GetView<SongDetailController> {
                     ),
                     backgroundColor: AppColors.primary,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.discoverController.playBook(controller.book, controller.book.id);
+                    Get.toNamed(AppRoutes.player);
+                  },
                   child: Text(
                     'Listen now',
                     style: TextStyle(color: Colors.white),
@@ -169,7 +173,8 @@ class SongDetail extends GetView<SongDetailController> {
                     color: AppColors.songDetailLikeSurface,
                   ),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                    },
                     icon: SvgPicture.asset('assets/icon/heart.svg'),
                   ),
                 ),

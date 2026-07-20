@@ -9,6 +9,7 @@ class PlayerController extends GetxController {
   Rxn<BookModel> get currentBook => player.currentBook;
   Rxn<ChapterModel> get currentChapter => player.currentChapter;
   RxBool get isPlaying => player.isPlaying;
+  RxBool get isLoading => player.isLoading;
   Rx<Duration> get position => player.position;
   Rx<Duration> get duration => player.duration;
   Rx<double> get speed => player.currentSpeed;

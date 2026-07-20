@@ -1,4 +1,6 @@
+import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/featuredtoday_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../app/theme/text_styles.dart';
@@ -24,7 +26,7 @@ class DiscoverBanner extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.network(banner.cover, fit: BoxFit.cover),
+              CommonNetworkImage(imageUrl: banner.cover,),
               Container(
                 decoration: BoxDecoration(
                   gradient: RadialGradient(

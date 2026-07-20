@@ -13,6 +13,7 @@ class AudioService extends GetxService {
   final playlist = <ChapterModel>[].obs;
   final currentIndex = 0.obs;
   final isPlaying = false.obs;
+  final isLoading = false.obs;
   final position = Duration.zero.obs;
   final duration = Duration.zero.obs;
   final currentSpeed = 1.0.obs;
@@ -43,11 +44,13 @@ class AudioService extends GetxService {
   }
 
   Future<void> _loadChapter(int index) async {
+    isLoading.value = true;
     if (index < 0 || index >= playlist.length) return;
     currentIndex.value = index;
     currentChapter.value = playlist[index];
     await player.setUrl(currentChapter.value!.audioUrl);
     await player.play();
+    isLoading.value=false;
   }
   Future<void> play() async {
     await player.play();

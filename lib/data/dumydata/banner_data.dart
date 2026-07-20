@@ -17,7 +17,7 @@ const List<BookModel> banners = [
   ),
 
   BookModel(
-    id: '11',
+    id: '1',
     title: 'The Silent Patient',
     author: 'Alex Michaelides',
     cover: 'https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg',
@@ -32,7 +32,7 @@ const List<BookModel> banners = [
   ),
 
   BookModel(
-    id: '9',
+    id: '1',
     title: 'Ikigai',
     author: 'Héctor García',
     cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
@@ -47,7 +47,7 @@ const List<BookModel> banners = [
   ),
 
   BookModel(
-    id: '10',
+    id: '1',
     title: 'The Subtle Art of Not Giving a F*ck',
     author: 'Mark Manson',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg',

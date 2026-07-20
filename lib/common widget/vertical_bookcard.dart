@@ -1,5 +1,7 @@
+import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/data/models/book_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class VerticalBookCard extends StatelessWidget {
@@ -10,17 +12,17 @@ class VerticalBookCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // SizedBox(
-        //   height: AppSizes.verticalCardHeight,
-        //   width: AppSizes.verticalCardWidth,
-        //   child:
-          Expanded(
-            child: Card(
+        SizedBox(
+          height: AppSizes.verticalCardHeight,
+          width: AppSizes.verticalCardWidth,
+          child:
+             Card(
               clipBehavior: Clip.antiAlias,
-              child: Image.network(book.cover, fit: BoxFit.cover),
+              child: CommonNetworkImage(imageUrl:book.cover, )
+              //Image.network(book.cover, fit: BoxFit.cover),
             ),
-          //),
-        ),
+          ),
+
         Padding(
           padding: const EdgeInsets.only(left:AppSizes.padding4),
           child: SizedBox(

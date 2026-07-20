@@ -1,5 +1,6 @@
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/data/models/book_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class HorizontalBookCard extends StatelessWidget {
           width: AppSizes.bookCardWidthSm,
           child: Card(
             clipBehavior: Clip.antiAlias,
-            child: Image.network(book.cover, fit: BoxFit.cover),
+            child:CachedNetworkImage(imageUrl: book.cover,fit: BoxFit.cover,)
           ),
         ),
         SizedBox(width: AppSizes.padding20),
