@@ -15,6 +15,7 @@ class AudioService extends GetxService {
   final isPlaying = false.obs;
   final position = Duration.zero.obs;
   final duration = Duration.zero.obs;
+  final currentSpeed = 1.0.obs;
 
   @override
   void onInit() {
@@ -36,6 +37,7 @@ class AudioService extends GetxService {
     int startIndex = 0,
   }) async {
     currentBook.value = book;
+
     playlist.assignAll(chapters);
     await _loadChapter(startIndex);
   }
@@ -54,8 +56,42 @@ class AudioService extends GetxService {
   Future<void> pause() async {
     await player.pause();
   }
+  Future<void> next() async {
+    if(currentIndex.value<playlist.length-1) {
+      await _loadChapter(currentIndex.value+1);
+    }
+  }
+  Future<void> previous() async {
+    if(currentIndex.value>0){
+      await _loadChapter(currentIndex.value-1);
+    }
+  }
   Future<void> seek(Duration position) async {
     await player.seek(position);
+  }
+  Future<void> setSpeed(double newSpeed) async {
+    currentSpeed.value =  newSpeed;
+    await player.setSpeed(newSpeed);
+  }
+
+  Future<void> forWard10Seconds() async {
+    final newPosition = position.value + const Duration(seconds: 10);
+    if(newPosition<duration.value){
+    await player.seek(newPosition);
+    }
+    else{
+      await player.seek(duration.value);
+    }
+}
+
+  Future<void> backWard10Seconds() async {
+    final newPosition = position.value - const Duration(seconds: 10);
+    if(newPosition<Duration.zero){
+    await player.seek(Duration.zero);
+    }
+    else{
+      await player.seek(newPosition);
+    }
   }
 
 

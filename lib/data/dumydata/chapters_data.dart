@@ -1,6 +1,7 @@
 import '../models/chapter_model.dart';
 
 final List<ChapterModel> dummyChapters = [
+
   ChapterModel(
     id: '1',
     bookId: '1',
@@ -45,4 +46,14 @@ final List<ChapterModel> dummyChapters = [
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
     duration: const Duration(minutes: 17, seconds: 50),
   ),
+
+  ChapterModel(
+    id: '6',
+    bookId: '1',
+    chapterNumber: 6,
+    title: 'Make Habits Obvious 2' ,
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    duration: const Duration(minutes: 22, seconds: 10),
+  ),
+
 ];

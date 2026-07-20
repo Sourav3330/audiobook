@@ -7,9 +7,11 @@ class BookModel {
   final String cover;
   final String category;
   final String description;
+  final String language;
   final Duration duration;
   final int totalChapters;
   final double rating;
+  final int totalReviews;
 
   const BookModel({
     required this.id,
@@ -21,6 +23,8 @@ class BookModel {
     required this.duration,
     required this.rating,
     required this.totalChapters,
+    required this.totalReviews,
+    required this.language,
   });
 
   factory BookModel.fromMap(String uid, Map<String, dynamic> map) {
@@ -34,6 +38,8 @@ class BookModel {
       duration: map['duration'],
       rating: map['rating'],
       totalChapters: map['chapters'],
+      totalReviews: map['totalReviews'],
+      language: map['language'],
     );
   }
 }

@@ -11,6 +11,8 @@ class PlayerController extends GetxController {
   RxBool get isPlaying => player.isPlaying;
   Rx<Duration> get position => player.position;
   Rx<Duration> get duration => player.duration;
+  Rx<double> get speed => player.currentSpeed;
+  RxList<ChapterModel> get playlist => player.playlist;
 
   void togglePlayPause() {
     if (isPlaying.value == true) {
@@ -23,4 +25,20 @@ class PlayerController extends GetxController {
   Future<void> seek(Duration position) async {
     await player.seek(position);
   }
+  Future<void> skipNext() async {
+    await player.next();
+  }
+  Future<void> skipPrevious() async {
+    await player.previous();
+  }
+  Future<void> setSpeed(double newSpeed) async {
+    await player.setSpeed(newSpeed);
+  }
+  Future<void> forWard10() async {
+    await player.forWard10Seconds();
+  }
+  Future<void> backWard10() async {
+    await player.backWard10Seconds();
+  }
+
 }

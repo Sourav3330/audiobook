@@ -25,7 +25,7 @@ class AppSizes {
   static const double radius24 = 24;
 
   // Navigation / app bar
-  static const double bottomNavHeight = 72;
+  static const double bottomNavHeight = 60;
   static const double appBarHeight = kToolbarHeight;
 
   // Form field

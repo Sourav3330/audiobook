@@ -33,6 +33,16 @@ static const Color featuredContainerTextColor = Color(0xFFFBB3C5);
   static const Color chapterCard = Color(0xFF5A4D52);
   static const Color chapterCardTitle = Color(0xFFDEDBDC);
   static const Color playerAuthor = Color(0xFF755B5D);
+  static const Color sliderInactive = Color(0xFFCFC2BC);
+
+
+  //chapter screen
+  static const Color chapterListBookAuthor = Color(0xFFFBB3C5);
+  static const Color chapterListListenButton = Color(0xFF6B3746);
+  static const Color chapterBorder = Color(0xFFECE5E3);
+
+  //mini player
+static const Color miniPlayerDuration = Color(0xFFC4BBBD);
 
 
 

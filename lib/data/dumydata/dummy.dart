@@ -13,6 +13,10 @@ const List<BookModel> allBooks =
         'Tiny changes, remarkable results. Learn how small daily habits lead to extraordinary success.',
     duration: Duration(hours: 5, minutes: 35),
     rating: 4.9,
+    totalReviews: 5500,
+    language: 'English'
+
+
   ),
 
   BookModel(
@@ -26,6 +30,8 @@ const List<BookModel> allBooks =
         'Discover strategies to improve focus and produce high-quality work without distractions.',
     duration: Duration(hours: 6, minutes: 10),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -39,6 +45,8 @@ const List<BookModel> allBooks =
         'A classic book that changes the way you think about money, investing, and financial freedom.',
     duration: Duration(hours: 6, minutes: 45),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -52,6 +60,8 @@ const List<BookModel> allBooks =
         'Understand why people make financial decisions and how behavior matters more than knowledge.',
     duration: Duration(hours: 5, minutes: 50),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -65,6 +75,8 @@ const List<BookModel> allBooks =
         'A timeless story about following your dreams and discovering your personal legend.',
     duration: Duration(hours: 4, minutes: 20),
     rating: 4.6,
+    totalReviews: 5500,
+    language: 'English'
   ),
   BookModel(
     id: '6',
@@ -77,6 +89,8 @@ const List<BookModel> allBooks =
         'Learn how self-sabotage works and transform it into self-mastery.',
     duration: Duration(hours: 7, minutes: 10),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -90,6 +104,8 @@ const List<BookModel> allBooks =
         'Train your mind for peace and purpose using timeless monk wisdom.',
     duration: Duration(hours: 9, minutes: 15),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -103,6 +119,8 @@ const List<BookModel> allBooks =
         'Own your mornings to elevate productivity and personal growth.',
     duration: Duration(hours: 8, minutes: 5),
     rating: 4.6,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -115,6 +133,8 @@ const List<BookModel> allBooks =
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -129,6 +149,8 @@ const List<BookModel> allBooks =
         'A refreshing approach to living a better life by focusing on what truly matters.',
     duration: Duration(hours: 6, minutes: 35),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -143,6 +165,8 @@ const List<BookModel> allBooks =
         'A psychological thriller full of suspense and unexpected twists.',
     duration: Duration(hours: 8, minutes: 30),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -157,6 +181,8 @@ const List<BookModel> allBooks =
         'A magical library lets Nora explore the lives she could have lived.',
     duration: Duration(hours: 7, minutes: 45),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -171,6 +197,8 @@ const List<BookModel> allBooks =
         'An inspiring memoir about discipline, resilience, and mental toughness.',
     duration: Duration(hours: 13, minutes: 10),
     rating: 4.9,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -185,6 +213,8 @@ const List<BookModel> allBooks =
         'Learn to live fully in the present moment and free yourself from unnecessary suffering.',
     duration: Duration(hours: 7, minutes: 5),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -199,6 +229,8 @@ const List<BookModel> allBooks =
         'A practical guide for entrepreneurs to build successful startups.',
     duration: Duration(hours: 8, minutes: 20),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 ];
 const List<BookModel> recommended =
@@ -214,6 +246,8 @@ const List<BookModel> recommended =
         'Learn how self-sabotage works and transform it into self-mastery.',
     duration: Duration(hours: 7, minutes: 10),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -227,6 +261,8 @@ const List<BookModel> recommended =
         'Train your mind for peace and purpose using timeless monk wisdom.',
     duration: Duration(hours: 9, minutes: 15),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -240,6 +276,8 @@ const List<BookModel> recommended =
         'Own your mornings to elevate productivity and personal growth.',
     duration: Duration(hours: 8, minutes: 5),
     rating: 4.6,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -252,6 +290,8 @@ const List<BookModel> recommended =
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -266,6 +306,8 @@ const List<BookModel> recommended =
         'A refreshing approach to living a better life by focusing on what truly matters.',
     duration: Duration(hours: 6, minutes: 35),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -280,6 +322,8 @@ const List<BookModel> recommended =
         'A psychological thriller full of suspense and unexpected twists.',
     duration: Duration(hours: 8, minutes: 30),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
 
@@ -297,6 +341,8 @@ const List<BookModel> newReleases =
         'Learn how self-sabotage works and transform it into self-mastery.',
     duration: Duration(hours: 7, minutes: 10),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -310,6 +356,8 @@ const List<BookModel> newReleases =
         'Train your mind for peace and purpose using timeless monk wisdom.',
     duration: Duration(hours: 9, minutes: 15),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -323,6 +371,8 @@ const List<BookModel> newReleases =
         'Own your mornings to elevate productivity and personal growth.',
     duration: Duration(hours: 8, minutes: 5),
     rating: 4.6,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -335,6 +385,8 @@ const List<BookModel> newReleases =
     description: 'Discover the Japanese secret to a long and meaningful life.',
     duration: Duration(hours: 5, minutes: 25),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -349,6 +401,8 @@ const List<BookModel> newReleases =
         'A refreshing approach to living a better life by focusing on what truly matters.',
     duration: Duration(hours: 6, minutes: 35),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -363,6 +417,8 @@ const List<BookModel> newReleases =
         'A psychological thriller full of suspense and unexpected twists.',
     duration: Duration(hours: 8, minutes: 30),
     rating: 4.8,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
   BookModel(
@@ -377,6 +433,8 @@ const List<BookModel> newReleases =
         'A magical library lets Nora explore the lives she could have lived.',
     duration: Duration(hours: 7, minutes: 45),
     rating: 4.7,
+    totalReviews: 5500,
+    language: 'English'
   ),
 
 ];

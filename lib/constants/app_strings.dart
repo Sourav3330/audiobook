@@ -1,6 +1,6 @@
 class AppStrings {
   AppStrings._();
-static const appName = "Velvet Night";
+static const appName = "Audio Book";
 
 // auth textField label names
 static const emailFieldLabel = 'EMAIL ADDRESS';
@@ -29,7 +29,7 @@ static const reenterPassLabel = 'Confirm password';
 static const accountCreated = 'Account created';
 static const passwordTooShort = 'Password must be at least 8 characters';
 
-//snackbar
+//snackBar
 static const somethingWentWrong = 'somethingWentWrong';
 
 //validators
@@ -45,4 +45,7 @@ static const featuredToday = 'Featured today';
 
 //library Screen
 static const searchCategory = 'Search Categories....';
+
+//chapters screen
+static const listenersReviews = 'Listeners Reviews';
 }
