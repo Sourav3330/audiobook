@@ -17,71 +17,78 @@ class DiscoverView extends GetView<DiscoverController> {
     return Scaffold(
       appBar: CommonAppbar(showBackButton: false),
       body: Padding(
-        padding: const EdgeInsets.all(AppSizes.padding4),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: DiscoverBanner(
-                    banners: controller.banners,
-                    detailOnTap: controller.viewSong,
-                    playOnTap:
-                      controller.playBook,
-                  ),
+        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 12),
+        child: CustomScrollView(
+          slivers: [
+            //SliverPadding(padding: EdgeInsetsGeometry.all(AppSizes.padding20)),
+            SliverToBoxAdapter(
+              child: DiscoverBanner(
+                banners: controller.banners,
+                detailOnTap: controller.viewSong,
+                playOnTap: controller.playBook,
+              ),
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: AppSpacing.lg)),
+            SliverToBoxAdapter(
+              child:  Row(
+                  children: [
+                    Text(AppStrings.newReleases,style: Get.textTheme.titleLarge,),
+                    Spacer(),
+                    Text(
+                      AppStrings.seeAll,
+                      style: Get.textTheme.titleSmall
+                    ),
+                  ],
                 ),
-                SizedBox(height: AppSpacing.md),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 0),
-                  child: Row(
-                    children: [
-                      Text(AppStrings.newReleases, style: TextStyles.listNames),
-                      Spacer(),
-                      Text(
-                        AppStrings.seeAll,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: AppSpacing.sm),
-                SizedBox(
-                  height: AppSizes.verticalCardRowHeight,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: controller.newReleases.length,
-                    itemBuilder: (context, index) {
-                      var data = controller.newReleases[index];
-                      return Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: VerticalBookCard(book: data),
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 0),
-                  child: Text(
-                    AppStrings.recommendedForYou,
-                    style: TextStyles.listNames,
-                  ),
-                ),
-                SizedBox(height: 10),
-                ListView.builder(
-                  physics: ScrollPhysics(parent: BouncingScrollPhysics()),
-                  shrinkWrap: true,
-                  itemCount: controller.recommended.length,
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: AppSpacing.sm)),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 380,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.newReleases.length,
                   itemBuilder: (context, index) {
-                    var data = controller.recommended[index];
-                    return HorizontalBookCard(book: data);
+                    var data = controller.newReleases[index];
+                    final width = ((MediaQuery.of(context)).size.width-30)/2;
+                    return InkWell(onTap: (){
+                      controller.viewSong(data);
+                    },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: VerticalBookCard(book: data,width: width,),
+                      ),
+                    );
                   },
                 ),
-              ],
+              ),
             ),
-          ),
+            SliverToBoxAdapter(
+              child:SizedBox(height: AppSpacing.md,),
+            ),
+            //recommended for you
+            SliverToBoxAdapter(
+                child: Text(
+                  AppStrings.recommendedForYou,style: Get.textTheme.titleLarge,
+                ),
+              ),
+
+            SliverToBoxAdapter(child: SizedBox(height: AppSpacing.sm)),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                childCount: controller.recommended.length,
+                (context, index) {
+                  var data = controller.recommended[index];
+                  return InkWell(
+                      onTap: (){
+                        controller.viewSong(data);
+                      },
+                      child: HorizontalBookCard(book: data));
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -33,6 +33,7 @@ class PlayerView extends GetView<PlayerController> {
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.padding20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             //Player top card shows information of current chapter
             SizedBox(
@@ -74,7 +75,6 @@ class PlayerView extends GetView<PlayerController> {
                 ),
               ),
             ),
-
             //Book Cover card
             SizedBox(
               width: double.infinity,
@@ -87,7 +87,6 @@ class PlayerView extends GetView<PlayerController> {
               ),
             ),
             const SizedBox(height: 9),
-
             //Book Title and Author name
             Center(
               child: Column(
@@ -115,7 +114,6 @@ class PlayerView extends GetView<PlayerController> {
               ),
             ),
             const SizedBox(height: 15),
-
             //Slider
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
@@ -135,7 +133,6 @@ class PlayerView extends GetView<PlayerController> {
                 ),
               ),
             ),
-
             //song current Position and Duration values
             Obx(
               () => Padding(
@@ -143,12 +140,14 @@ class PlayerView extends GetView<PlayerController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    //position duration
                     Text(
                       Durationformater.formatDuration(
                         controller.position.value,
                       ),
                       style: TextStyle(fontFamily: Fonts.poppins, fontSize: 12),
                     ),
+                    //max duration
                     Text(
                       Durationformater.formatDuration(
                         controller.duration.value,
@@ -159,17 +158,18 @@ class PlayerView extends GetView<PlayerController> {
                 ),
               ),
             ),
-
             // Controll buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                //previous song button
                 PreviousSongButton(
                   onTap: () {
                     controller.skipPrevious();
                   },
                   size: 50,
                 ),
+                //back10sec button
                 IconButton(
                   onPressed: () {
                     controller.backWard10();
@@ -181,6 +181,7 @@ class PlayerView extends GetView<PlayerController> {
                     width: 30,
                   ),
                 ),
+                //play pause botton
                 Obx(
                   () => PlayPauseButton(
                     isLoading: controller.isLoading.value,
@@ -191,6 +192,7 @@ class PlayerView extends GetView<PlayerController> {
                     size: 90,
                   ),
                 ),
+                //forward 10 sec button
                 IconButton(
                   onPressed: () {
                     controller.forWard10();
@@ -202,6 +204,7 @@ class PlayerView extends GetView<PlayerController> {
                     color: AppColors.primary,
                   ),
                 ),
+                 //next song button
                  NextSongButton(
                   onTap: () {
                     controller.skipNext();
@@ -211,63 +214,75 @@ class PlayerView extends GetView<PlayerController> {
               ],
             ),
             const SizedBox(height: 10),
+            //speed,chapter,language button
             Row(
               spacing: 30,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                //speed button
                 IconButton(
+                  padding: EdgeInsets.zero,
+                  highlightColor: Colors.transparent,
                   onPressed: () {
-                    Get.bottomSheet(
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: AppColors.surface,
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(5),
+                      Get.bottomSheet(
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: AppColors.surface,
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(5),
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const SpeedTile(value: 0.5),
+                              const SpeedTile(value: 0.75),
+                              const SpeedTile(value: 1.0, title: "(Normal)"),
+                              const SpeedTile(value: 1.25),
+                              const SpeedTile(value: 1.5),
+                              const SpeedTile(value: 2.0),
+                            ],
                           ),
                         ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const SpeedTile(value: 0.5),
-                            const SpeedTile(value: 0.75),
-                            const SpeedTile(value: 1.0, title: "(Normal)"),
-                            const SpeedTile(value: 1.25),
-                            const SpeedTile(value: 1.5),
-                            const SpeedTile(value: 2.0),
-                          ],
+                      );
+                    },
+                    icon: Column(
+                      children: [
+                        Icon(Icons.speed, color: AppColors.primary, size: 25),
+                         Text(
+                          '1.25x',
+                          style: TextStyle(fontSize: 10),
                         ),
-                      ),
-                    );
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.speed, color: AppColors.primary, size: 25),
-                       Text(
-                        '1.25x',
-                        style: TextStyles.poppins.copyWith(fontSize: 10),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    Get.bottomSheet(
-                      isScrollControlled: true,
-                      ChaptersScreen()
-                    );
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.menu, color: AppColors.primary, size: 25),
-                      Text(
-                        'Chapters',
-                        style: TextStyles.poppins.copyWith(fontSize: 10),
-                      ),
-                    ],
+                //chapters button
+                 IconButton(
+                   highlightColor: Colors.transparent,
+                   padding: EdgeInsets.zero,
+                   onPressed: () {
+                      Get.bottomSheet(
+                        isScrollControlled: true,
+                        ChaptersScreen()
+                      );
+                    },
+
+                    icon: Column(
+                      children: [
+                        Icon(Icons.menu, color: AppColors.primary, size: 25),
+                        Text(
+                          'Chapters',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                //language button
                 IconButton(
+                  padding: EdgeInsets.zero,
+                  highlightColor: Colors.transparent,
+
                   onPressed: () {},
                   icon: Column(
                     children: [
@@ -278,7 +293,7 @@ class PlayerView extends GetView<PlayerController> {
                       ),
                       Text(
                         'Language',
-                        style: TextStyles.poppins.copyWith(fontSize: 10),
+                        style: TextStyle(fontSize: 10),
                       ),
                     ],
                   ),

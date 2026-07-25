@@ -1,6 +1,8 @@
 import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/app/theme/fonts.dart';
+import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/common_slider.dart';
+import 'package:audio_book/common%20widget/mini_player.dart';
 import 'package:audio_book/constants/app_colors.dart';
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/modules/activity/view/activity_view.dart';
@@ -26,127 +28,81 @@ class ShellView extends GetView<ShellController> {
   ShellView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Scaffold(
+    print("DiscoverView build@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    return Scaffold(
         body: Column(
           children: [
             Expanded(
-              child: IndexedStack(
-                index: controller.currentIndex.value,
-                children: pages,
+              child:
+              Obx(()=>
+                 IndexedStack(
+                  index: controller.currentIndex.value,
+                  children: pages,
+                ),
               ),
             ),
+            Obx(()=>
             controller.player.currentBook.value == null
                 ? SizedBox()
                 : InkWell(
               onTap: (){
                 Get.toNamed(AppRoutes.player);
               },
-                  child: Card(
-                      color: AppColors.primary,
-                      child: Padding(
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          // minLeadingWidth: 60,
-                          // minTileHeight: 80,
-                          leading: SizedBox(
-                            height: 56,width: 56,
-                            child: Card(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(5)),
-                              clipBehavior: Clip.antiAlias,
-                              child: Image.network(
-                                controller.player.currentBook.value!.cover,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          title: Text(
-                            controller.player.currentChapter.value!.title,
-                            style: TextStyle(color: AppColors.surface,fontFamily: Fonts.poppins),
-                          ),
-                          subtitle:
-                          SizedBox(
-                            width: 150,
-                            child: Row(
-                              children: [
-                                CommonSlider(
-                                    miniPlayer: true,
-                                    value: controller.player.position.value.inSeconds.toDouble(), max: controller.player.duration.value.inSeconds.toDouble()
-                                    , onChanged:(value){
-                                  controller.player.seek(Duration(seconds: value.toInt()));
-                                    }),
-                                SizedBox(width: 9,),
-                                Text(
-                                  Durationformater.formatDuration(
-                                    controller.player.position.value,
-                                  ),
-                                  style: TextStyle(fontFamily: Fonts.poppins, fontSize: 12,color: AppColors.miniPlayerDuration),
-                                ),
-                                Text('/'),
-                                Text(
-                                  Durationformater.formatDuration(
-                                    controller.player.duration.value,
-                                  ),
-                                  style: TextStyle(fontFamily: Fonts.poppins, fontSize: 12,color: AppColors.miniPlayerDuration),
-                                ),
-                              ],
-
-
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  child:MiniPlayer(),
                 ),
+            )
           ],
         ),
-        bottomNavigationBar: NavigationBarTheme(
-          data: NavigationBarThemeData(
-            indicatorColor: Colors.transparent,
+        bottomNavigationBar:
+        Obx(()=>
+           NavigationBarTheme(
+            data: NavigationBarThemeData(
+              indicatorColor: Colors.transparent,
 
-            iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
-              if (states.contains(WidgetState.selected)) {
-                return const IconThemeData(color: AppColors.primary, size: 28);
-              }
-              return const IconThemeData(color: Colors.grey, size: 24);
-            }),
-          ),
-          child: NavigationBar(
-            indicatorColor: Colors.transparent,
-            overlayColor: WidgetStatePropertyAll(Colors.transparent),
-            labelTextStyle: WidgetStateProperty.resolveWith((states) {
-              return TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-              );
-            }),
-            height: AppSizes.bottomNavHeight,
-            selectedIndex: controller.currentIndex.value,
-            onDestinationSelected: (value) {
-              controller.changeIndex(value);
-            },
-            destinations: [
-              NavigationDestination(
-                icon: Icon(Icons.home_filled),
-                label: 'Discover',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.local_library_outlined),
-                label: 'library',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.library_books),
-                label: 'Activity',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.person_outline),
-                label: 'Profile',
-              ),
-            ],
+              iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
+                if (states.contains(WidgetState.selected)) {
+                  return const IconThemeData(color: AppColors.primary, size: 28);
+                }
+                return const IconThemeData(color: Colors.grey, size: 24);
+              }),
+            ),
+            child: NavigationBar(
+              indicatorColor: Colors.transparent,
+              overlayColor: WidgetStatePropertyAll(Colors.transparent),
+              labelTextStyle: WidgetStateProperty.resolveWith((states) {
+                return TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 10,
+                  fontWeight: FontWeight.w500,
+                );
+              }),
+              height: AppSizes.bottomNavHeight,
+              selectedIndex: controller.currentIndex.value,
+              onDestinationSelected: (value) {
+                controller.changeIndex(value);
+              },
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(Icons.home_filled),
+                  label: 'Discover',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.local_library_outlined),
+                  label: 'library',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.library_books),
+                  label: 'Activity',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.person_outline),
+                  label: 'Profile',
+                ),
+              ],
+            ),
           ),
         ),
-      ),
+
     );
   }
 }

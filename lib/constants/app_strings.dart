@@ -38,10 +38,13 @@ static const invalidEmail = 'invalid email';
 static const passwordNotSame = 'password does not match';
 
 //discover Screen
+static const viewDetailButton = 'View Details';
+static const playNowButton = 'Play Now';
 static const newReleases = 'New Releases';
 static const recommendedForYou = 'Recommended for you';
 static const seeAll = 'See all';
 static const featuredToday = 'Featured today';
+static const moreDetails = 'More Details';
 
 //library Screen
 static const searchCategory = 'Search Categories....';

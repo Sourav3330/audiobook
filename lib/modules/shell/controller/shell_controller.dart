@@ -9,4 +9,8 @@ class ShellController extends GetxController{
   void changeIndex (int index){
     currentIndex.value =index;
   }
+  @override
+  void onInit() {
+    super.onInit();
+  }
 }

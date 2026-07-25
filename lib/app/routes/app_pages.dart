@@ -12,6 +12,8 @@ import 'package:audio_book/modules/shell/binding/shell_binding.dart';
 import 'package:audio_book/modules/shell/view/shell_view.dart';
 import 'package:audio_book/modules/splash/controllers/splash_controller.dart';
 import 'package:audio_book/modules/splash/views/splash_view.dart';
+import 'package:audio_book/modules/test/test_binding.dart';
+import 'package:audio_book/modules/test/test_view.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -54,6 +56,11 @@ class AppPages {
         name: AppRoutes.player,
         page: () => PlayerView(),
       binding: PlayerBinding()
+    ),
+    GetPage(
+        name: AppRoutes.test,
+        page: () => TestView(),
+      binding: TestBinding()
     ),
   ];
 }

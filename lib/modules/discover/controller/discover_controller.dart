@@ -10,18 +10,18 @@ import 'package:get/get.dart';
 class DiscoverController extends GetxController {
   final BookRepository repository = Get.find();
   final AudioService audioService = Get.find();
-
   final RxList<BookModel> allBooks = <BookModel>[].obs;
   final RxList<BookModel> filtered = <BookModel>[].obs;
   final RxList<BookModel> newReleases = <BookModel>[].obs;
   final RxList<BookModel> recommended = <BookModel>[].obs;
   final RxList<BookModel> banners = <BookModel>[].obs;
   final RxList<CategoryModel> categories = <CategoryModel>[].obs;
+  late Rxn<BookModel>currentBook;
 
   @override
   void onInit() {
     super.onInit();
-    loadAllBooks();
+     loadAllBooks();
     loadNewRelease();
     loadRecommended();
     loadBanners();
@@ -66,8 +66,8 @@ class DiscoverController extends GetxController {
     banners.assignAll(repository.getBanners());
   }
 
-  Future<void> playBook(BookModel book, String bookId)async {
+  Future<void> playBook(BookModel book,)async {
     Get.toNamed(AppRoutes.player);
-    await audioService.playBook(book: book, chapters: repository.getChapters(bookId));
+    await audioService.playBook(book: book, chapters: repository.getChapters(book.id));
   }
 }

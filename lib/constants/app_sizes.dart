@@ -37,9 +37,9 @@ class AppSizes {
   // Card
   static const double cardElevation = 0;
   static const double bookCardHeightSm = 70;
-  static const double bookCardWidthSm = 70;
+  static const double bookCardWidthSm = 55;
 
-  static const double verticalCardHeight = 250;
+  static const double verticalCardImageHeight = 300;
   static const double verticalCardWidth = 150;
   static const double verticalCardTitleWidth = 130;
   static const double verticalCardRowHeight = 320;
@@ -56,6 +56,7 @@ class AppSizes {
 class AppSpacing {
   AppSpacing._();
   static const double xs = 4;
+  static const double xxs = 2;
   static const double sm = 8;
   static const double md = 16;
   static const double lg = 24;

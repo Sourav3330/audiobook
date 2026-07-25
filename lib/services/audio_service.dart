@@ -29,6 +29,7 @@ class AudioService extends GetxService {
 
     player.playerStateStream.listen((playing){
       isPlaying.value = playing.playing;
+      isLoading.value = playing.processingState == ProcessingState.buffering ||  playing.processingState == ProcessingState.loading;
     });
   }
 
@@ -45,12 +46,12 @@ class AudioService extends GetxService {
 
   Future<void> _loadChapter(int index) async {
     isLoading.value = true;
-    if (index < 0 || index >= playlist.length) return;
+    if (index < 0 || index >= playlist.length){  isLoading.value = false; return;}
     currentIndex.value = index;
     currentChapter.value = playlist[index];
     await player.setUrl(currentChapter.value!.audioUrl);
-    await player.play();
     isLoading.value=false;
+    await player.play();
   }
   Future<void> play() async {
     await player.play();

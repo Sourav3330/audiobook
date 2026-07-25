@@ -4,6 +4,6 @@ import 'package:get/get.dart';
 class PlayerBinding extends Bindings{
   @override
   void dependencies() {
-    Get.lazyPut<PlayerController>(()=>PlayerController());
+    Get.lazyPut<PlayerController>(()=>PlayerController(),fenix: true);
   }
 }

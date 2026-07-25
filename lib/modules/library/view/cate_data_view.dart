@@ -14,31 +14,99 @@ class CateDataView extends GetView<CateDataController> {
     return Scaffold(
       appBar: CommonAppbar(showBackButton: true),
       body: Padding(
-        padding: const EdgeInsets.all(9),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              controller.category.name,
-              style: TextStyle(
-                fontSize: 25,
-                color: AppColors.primary,
-                fontWeight: FontWeight.w600,
+        padding: const EdgeInsets.all(8),
+        child: CustomScrollView(
+          slivers: [
+            // SliverAppBar(
+            //   backgroundColor: AppColors.scaffoldBg,
+            //   title:Text( controller.category.name,style: TextStyle(color: AppColors.primary),),
+            //   pinned: true,
+            //   automaticallyImplyLeading: false,
+            // ),
+            // SliverAppBar(
+            //   automaticallyImplyLeading: false,
+            //   flexibleSpace: Text(controller.category.description),
+            //   expandedHeight: 180,
+            // ),
+
+            SliverToBoxAdapter(
+              child: Text(
+                controller.category.name,
+                style: TextStyle(
+                  fontSize: 25,
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-            Text(controller.category.description,style: TextStyle( fontWeight: FontWeight.w500,color: AppColors.grayText,fontSize: 15),),
-            Expanded(
-              child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 4,mainAxisSpacing: 9,childAspectRatio: 0.6),
-                  itemCount:controller.books.length,
-                  itemBuilder: (context,index){
-                var data = controller.books[index];
-                return VerticalBookCard(book:data );
-              }),
-            )
+            SliverToBoxAdapter(
+              child: Text(
+                controller.category.description,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.grayText,
+                  fontSize: 15,
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: 10,),),
+
+            SliverGrid.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+
+                childAspectRatio: 0.5,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 0,
+                crossAxisCount: 2), itemCount: controller.books.length,itemBuilder: (context,index){
+              var data = controller.books[index];
+              return InkWell(
+                  onTap:(){
+                    controller.navigateToViewBook(data);
+                  },
+                  child: VerticalBookCard(book:data,));
+            })
           ],
         ),
       ),
+      // Padding(
+      //   padding: const EdgeInsets.all(9),
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       Text(
+      //         controller.category.name,
+      //         style: TextStyle(
+      //           fontSize: 25,
+      //           color: AppColors.primary,
+      //           fontWeight: FontWeight.w600,
+      //         ),
+      //       ),
+      //       Text(
+      //         controller.category.description,
+      //         style: TextStyle(
+      //           fontWeight: FontWeight.w500,
+      //           color: AppColors.grayText,
+      //           fontSize: 15,
+      //         ),
+      //       ),
+      //       Expanded(
+      //         child: GridView.builder(
+      //           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      //             crossAxisCount: 2,
+      //             // crossAxisSpacing: 4,
+      //             // mainAxisSpacing: 9,
+      //             // childAspectRatio: 0.6,
+      //           ),
+      //           itemCount: controller.books.length,
+      //           itemBuilder: (context, index) {
+      //             var data = controller.books[index];
+      //             final width = (MediaQuery.of(context).size.width) / 2;
+      //             return VerticalBookCard(book: data, width: width);
+      //           },
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

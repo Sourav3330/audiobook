@@ -18,7 +18,7 @@ class SpeedTile extends GetView<PlayerController>{
   Widget build(BuildContext context) {
     return Obx(()=>
         ListTile(
-          title: Text('${value.toString()} ${title ?? ''} ',style: TextStyles.poppins.copyWith(fontSize: 12),),
+          title: Text('${value.toString()} ${title ?? ''} ',style: TextStyle(fontSize: 12),),
           trailing:controller.speed.toDouble() == value?Icon(Icons.check) : null,
           onTap:(){
             controller.setSpeed(value);

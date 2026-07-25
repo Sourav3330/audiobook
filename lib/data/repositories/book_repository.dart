@@ -1,10 +1,13 @@
 import 'package:audio_book/data/dumydata/banner_data.dart';
 import 'package:audio_book/data/dumydata/category_data.dart';
 import 'package:audio_book/data/dumydata/chapters_data.dart';
+import 'package:audio_book/data/dumydata/reviews_data.dart';
 import 'package:audio_book/data/models/book_model.dart';
 import 'package:audio_book/data/models/category_model.dart';
 import 'package:audio_book/data/models/chapter_model.dart';
+import 'package:audio_book/data/models/review_model.dart';
 import '../dumydata/dummy.dart';
+import '../models/review_model.dart';
 
 
 class BookRepository {
@@ -30,4 +33,11 @@ class BookRepository {
   List<ChapterModel> getChapters(String bookId){
     return dummyChapters.where((chapter)=>chapter.bookId==bookId).toList();
   }
+  List<ReviewModel> getReviews(){
+    return dummyReviews;
+}
+List<ReviewModel> getTopReviews(){
+    return dummyReviews;
+}
+
 }

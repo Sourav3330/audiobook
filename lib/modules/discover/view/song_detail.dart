@@ -1,5 +1,6 @@
 import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/common%20widget/common_appbar.dart';
+import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/featuredtoday_text.dart';
 import 'package:audio_book/constants/app_colors.dart';
 import 'package:audio_book/constants/app_sizes.dart';
@@ -29,9 +30,8 @@ class SongDetail extends GetView<SongDetailController> {
                 children: [
                   SizedBox(
                     child: ClipRRect(
-                      child: Image.network(
+                      child: CommonNetworkImage(imageUrl:
                         controller.book.cover,
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -155,7 +155,7 @@ class SongDetail extends GetView<SongDetailController> {
                     backgroundColor: AppColors.primary,
                   ),
                   onPressed: () {
-                    controller.discoverController.playBook(controller.book, controller.book.id);
+                    controller.playBook(controller.book);
                     Get.toNamed(AppRoutes.player);
                   },
                   child: Text(

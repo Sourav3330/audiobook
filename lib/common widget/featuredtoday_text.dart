@@ -2,7 +2,8 @@ import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/constants/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get.dart';
 import '../constants/app_colors.dart';
 
 class FeaturedTodayText extends StatelessWidget {
@@ -24,10 +25,10 @@ class FeaturedTodayText extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(4),
-        child:const Center(
+        child:Center(
           child:  Text(
             AppStrings.featuredToday,
-            style: TextStyle(color: AppColors.featuredContainerTextColor),
+            style:Get.textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)
           ),
         ),
       ),

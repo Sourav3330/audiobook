@@ -6,18 +6,21 @@ import '../constants/app_colors.dart';
 class NextSongButton extends StatelessWidget {
   final VoidCallback onTap;
   final double? size;
+  final Color? color;
   const NextSongButton({super.key,
     required this.onTap,
-    this.size
+    this.size,
+    this.color,
 
     });
   @override
   Widget build(BuildContext context) {
     return  IconButton(
+      padding: EdgeInsets.zero,
       onPressed: onTap,
       icon: Icon(
         Icons.skip_next_rounded,
-        color: AppColors.primary,
+        color:color ?? AppColors.primary,
         size: size,
       ),
     );

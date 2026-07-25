@@ -1,8 +1,11 @@
 import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/featuredtoday_text.dart';
+import 'package:audio_book/constants/app_strings.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../app/theme/text_styles.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_sizes.dart';
@@ -11,8 +14,9 @@ import '../data/models/book_model.dart';
 class DiscoverBanner extends StatelessWidget {
   final List<BookModel> banners;
   final void Function(BookModel book) detailOnTap;
-  final void Function(BookModel book, String bookId) playOnTap;
-  const DiscoverBanner({super.key,
+  final void Function(BookModel book) playOnTap;
+  const DiscoverBanner({
+    super.key,
     required this.banners,
     required this.detailOnTap,
     required this.playOnTap,
@@ -26,7 +30,7 @@ class DiscoverBanner extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              CommonNetworkImage(imageUrl: banner.cover,),
+              CommonNetworkImage(imageUrl: banner.cover),
               Container(
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
@@ -38,7 +42,7 @@ class DiscoverBanner extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 200,
+                top: 400,
                 left: 20,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,73 +52,48 @@ class DiscoverBanner extends StatelessWidget {
                       width: 350,
                       child: Text(
                         banner.title,
-                        style: TextStyles.listNames.copyWith(
+                        style: Get.textTheme.headlineLarge?.copyWith(
                           overflow: TextOverflow.ellipsis,
-                          color: AppColors.scaffoldBg,
-                          fontSize: 36,
+                          color: AppColors.bannerTitle,
                         ),
                       ),
                     ),
                     Text(
                       banner.author,
-                      style: TextStyles.listNames.copyWith(
+                      style: Get.textTheme.bodyMedium?.copyWith(
                         color: AppColors.scaffoldBg,
-                        fontWeight: FontWeight.normal,
                       ),
                     ),
                     SizedBox(height: AppSpacing.lg),
                     Row(
                       children: [
-                        InkWell(
-                          onTap:() {
+                        //view detail button
+                        TextButton(
+                          onPressed: () {
                             detailOnTap(banner);
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(
-                                width: 1,
-                                color: AppColors.yelloPrimary,
-                              ),
+                          style: Get.theme.textButtonTheme.style?.copyWith(
+                            side: WidgetStatePropertyAll(
+                              BorderSide(color: AppColors.yelloPrimary),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Center(
-                                child: Text(
-                                  "View Details",
-                                  style: TextStyle(color: AppColors.yelloPrimary),
-                                ),
-                              ),
+                          ),
+                          child: Text(
+                            AppStrings.viewDetailButton,
+                            style: Get.textTheme.bodyMedium?.copyWith(
+                              color: AppColors.yelloPrimary,
                             ),
                           ),
                         ),
+
                         SizedBox(width: 10),
-                        InkWell(
-                          onTap: (){
-                            playOnTap(banner,banner.id);
+                        //play button
+                        TextButton(
+                          style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(AppColors.primary),side: WidgetStatePropertyAll(BorderSide(width: 1))),
+                          child: Text(AppStrings.playNowButton,style: Get.textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)),
+                          onPressed: (){
+                            playOnTap(banner);
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: AppColors.primary,
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(width: 1),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Center(
-                                child: Text(
-                                  "Play Now",
-                                  style: TextStyle(
-                                    color: AppColors.featuredContainerTextColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        )
                       ],
                     ),
                   ],
@@ -126,8 +105,8 @@ class DiscoverBanner extends StatelessWidget {
       }).toList(),
       options: CarouselOptions(
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 4),
-        height: 400,
+        autoPlayInterval: Duration(seconds: 7),
+        height: 600,
         viewportFraction: 1,
       ),
     );

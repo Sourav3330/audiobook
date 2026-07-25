@@ -14,6 +14,7 @@ import 'firebase_options.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  final sw = Stopwatch()..start();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -30,12 +31,14 @@ class MyApp extends StatelessWidget {
       GetMaterialApp(
       title: AppStrings.appName,
       debugShowCheckedModeBanner: false,
-      theme:AppTheme.light,
-      defaultTransition: Transition.cupertino,
+      theme:AppTheme.light,darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
+      defaultTransition: Transition.noTransition,
       getPages: AppPages.routes,
       initialBinding: IntialBinding(),
       initialRoute: AppRoutes.splash,
-      home: SplashView(),
+       // showPerformanceOverlay:true,
+
 
     );
   }

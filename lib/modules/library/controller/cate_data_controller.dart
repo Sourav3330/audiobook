@@ -3,6 +3,8 @@ import 'package:audio_book/data/models/category_model.dart';
 import 'package:audio_book/data/repositories/book_repository.dart';
 import 'package:get/get.dart';
 
+import '../../../app/routes/app_routes.dart';
+
 class CateDataController extends GetxController {
 final BookRepository repository = Get.find();
   final RxList <BookModel> books = <BookModel>[].obs;
@@ -14,4 +16,7 @@ final BookRepository repository = Get.find();
     category =  Get.arguments as CategoryModel;
     books.assignAll(repository.getBooksByCategory(category.name));
   }
+void navigateToViewBook(BookModel book){
+  Get.toNamed(AppRoutes.songDetail,arguments:book );
+}
 }

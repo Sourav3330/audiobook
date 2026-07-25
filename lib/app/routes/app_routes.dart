@@ -8,4 +8,5 @@ class AppRoutes {
   static const String songDetail = '/songDetail';
   static const String cateDetail = '/cateDetail';
   static const String player = '/player';
+  static const String test = '/test';
 }
