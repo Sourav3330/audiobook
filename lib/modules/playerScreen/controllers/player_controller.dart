@@ -11,6 +11,7 @@ class PlayerController extends GetxController {
   final AudioService player = Get.find();
   final BookRepository repository = Get.find();
   final BookRepository repo = Get.find();
+  final RxDouble currentSpeed = 1.0.obs;
 
   Rxn<BookModel> get currentBook => player.currentBook;
   Rxn<ChapterModel> get currentChapter => player.currentChapter;
@@ -51,6 +52,8 @@ loadTopReview();
   }
   Future<void> setSpeed(double newSpeed) async {
     await player.setSpeed(newSpeed);
+    currentSpeed.value = newSpeed;
+
   }
   Future<void> forWard10() async {
     await player.forWard10Seconds();

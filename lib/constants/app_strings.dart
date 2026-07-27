@@ -46,9 +46,16 @@ static const seeAll = 'See all';
 static const featuredToday = 'Featured today';
 static const moreDetails = 'More Details';
 
+//player screen
+  static const pickMeWhereYouLeftOff = 'PICK UP WHERE YOU LEFT OFF';
+  static const chapter = 'Chapter';
+  static const language = 'Language';
+  static const chapters = 'Chapters';
 //library Screen
 static const searchCategory = 'Search Categories....';
 
 //chapters screen
 static const listenersReviews = 'Listeners Reviews';
+static const synopsys = 'Synopsis';
+static const duration = 'Duration';
 }

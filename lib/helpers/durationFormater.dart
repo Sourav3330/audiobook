@@ -12,4 +12,9 @@ class Durationformater {
 
     return '$minutes:$seconds';
   }
+  static String getDurationText(Duration duration){
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes;
+    return '${hours}h:${minutes.remainder(60)}m';
+  }
 }

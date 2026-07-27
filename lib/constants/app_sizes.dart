@@ -35,7 +35,9 @@ class AppSizes {
   static const double buttonHeight = 54;
 
   // Card
-  static const double cardElevation = 0;
+  static const double cardElevation0 = 0;
+  static const double cardElevation5 = 5;
+  static const double cardElevation10 = 10;
   static const double bookCardHeightSm = 70;
   static const double bookCardWidthSm = 55;
 

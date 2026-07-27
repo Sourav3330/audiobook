@@ -1,5 +1,4 @@
-import 'package:audio_book/app/theme/text_styles.dart';
-import 'package:audio_book/constants/app_colors.dart';
+
 import 'package:audio_book/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -23,13 +22,9 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title,),
-      foregroundColor: AppColors.primary,
-      backgroundColor: AppColors.scaffoldBg,
       automaticallyImplyLeading: showBackButton,
       leading: showBackButton ? null : Icon(Icons.menu,size: 30,),
       actions: actions,
     );
   }
-
-
 }

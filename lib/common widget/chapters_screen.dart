@@ -1,16 +1,13 @@
 import 'dart:math';
 
+import 'package:audio_book/app/theme/text_styles.dart';
 import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/ratings_widget.dart';
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/modules/playerScreen/controllers/player_controller.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../app/theme/fonts.dart';
-import '../app/theme/text_styles.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_strings.dart';
 import '../helpers/durationFormater.dart';
@@ -76,45 +73,32 @@ class ChaptersScreen extends GetView<PlayerController> {
                               RatingsWidget(
                                 rating: controller.currentBook.value!.rating,
                               ),
-                              const SizedBox(width: 5),
+                              const SizedBox(width: AppSpacing.md),
                               Text(
                                 controller.currentBook.value!.rating.toString(),
-                                style: TextStyle(
-                                  color: Colors.grey.shade400,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                                style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
                               ),
-                              const SizedBox(width: 5),
+                              const SizedBox(width: AppSpacing.md),
                               Text(
                                 '(${TotalReviews.totalReviews(5100)} reviews)',
-                                style: TextStyle(
-                                  color: Colors.grey.shade400,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                                style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
-
-                          Text(
-                            controller.currentBook.value!.title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 25,
-                              color: AppColors.bannerTitle,
+                          const SizedBox(height: AppSpacing.md),
+                          SizedBox(
+                            width: 350,
+                            child: Text(
+                              controller.currentBook.value!.title,
+                              style: Get.textTheme.headlineMedium?.copyWith(color: AppColors.bannerTitle,overflow: TextOverflow.ellipsis),
                             ),
                           ),
-
                           Text(
                             controller.currentBook.value!.author,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15,
-                              color: AppColors.chapterListBookAuthor,
-                              fontFamily: Fonts.poppins,
-                            ),
+                            style: Get.textTheme.bodyLarge?.copyWith(color: AppColors.chapterListBookAuthor)
+
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: AppSpacing.lg),
                           ChapterListenButton(onTap: () {
                            controller.playBook(controller.currentBook.value!);
                           }),
@@ -128,6 +112,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                       bottom: 0,
                       child: Card(
                         child: Container(
+
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -145,22 +130,13 @@ class ChaptersScreen extends GetView<PlayerController> {
                                 Column(
                                   children: [
                                     Text(
-                                      'Duration',
-                                      style: TextStyle(
-                                        fontFamily: Fonts.poppins,
-                                        color: AppColors.grayText,
-                                      ),
+                                      AppStrings.duration,
+                                      style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
-                                      Durationformater.formatDuration(
-                                        controller.currentBook.value!.duration,
-                                      ),
-                                      style: TextStyle(
-                                        color: AppColors.primary,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
+                                        Durationformater.getDurationText(controller.currentBook.value!.duration),
+                                      style: Get.textTheme.titleMedium
                                     ),
                                   ],
                                 ),
@@ -172,20 +148,15 @@ class ChaptersScreen extends GetView<PlayerController> {
                                 Column(
                                   children: [
                                     Text(
-                                      'Language',
-                                      style: TextStyle(
-                                        fontFamily: Fonts.poppins,
-                                        color: AppColors.grayText,
-                                      ),
+                                      AppStrings.language,
+                                      style:Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
+
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
                                       controller.currentBook.value!.language,
-                                      style: TextStyle(
-                                        color: AppColors.primary,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
+                                      style: Get.textTheme.titleMedium
+
                                     ),
                                   ],
                                 ),
@@ -198,42 +169,43 @@ class ChaptersScreen extends GetView<PlayerController> {
                   ],
                 ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: AppSpacing.lg),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //synopsis
                     Text(
-                      "Synopsys",
-                      style: TextStyle(fontSize: 25),
+                      AppStrings.synopsys,
+                      style: Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
                     ),
                     Text(
                       controller.currentBook.value!.description,
-                      style: TextStyle(fontSize: 12),
+                      style: Get.textTheme.bodyMedium
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: AppSpacing.lg),
+                    //chapters
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Chapters",
-                          style: TextStyle(fontSize: 25),
+                          AppStrings.chapters,
+                          style:  Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
                         ),
                         TextButton(
                           onPressed:(){
                             controller.toggleChapters();
                           },
-                          child: Text(
+                          child:
+                          Text(
                           AppStrings.seeAll,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style:Get.textTheme.titleSmall
                         ),
                         )
                       ],
                     ),
+                    //chapters list
                     Obx(
                           () {
                             final chapters =   controller.viewChapters.value ?
@@ -242,15 +214,14 @@ class ChaptersScreen extends GetView<PlayerController> {
                           Column(
                             mainAxisSize: MainAxisSize.min,
                             children:
-                            //   controller.viewChapters.value ?
-                            // controller.playlist :
+
                            chapters.map((chapter) {
                               return
                                 InkWell(onTap: (){
                                  controller.selectChapter(chapter.chapterNumber);
                                 },
-                                  child: Card(
-                                  elevation: 0,
+                                  child:
+                                  Card(
                                   color:
                                   controller.currentChapter.value!.id ==
                                       chapter.id
@@ -263,50 +234,58 @@ class ChaptersScreen extends GetView<PlayerController> {
                                       width: 1,
                                     ),
                                   ),
-                                  child: ListTile(
+                                  child:
+                                  ListTile(
+                                    tileColor: controller.currentChapter.value!.id ==
+                                            chapter.id
+                                            ? AppColors.primary
+                                            : AppColors.surface,
                                     title: Text(
                                       chapter.title,
-                                      style: TextStyle(
-                                        color:
+                                      style:Get.theme.listTileTheme.titleTextStyle?.copyWith(color:
                                         controller.currentChapter.value!.id ==
-                                            chapter.id
-                                            ? AppColors.surface
-                                            : AppColors.primary,
-                                      ),
+                                        chapter.id
+                                        ? AppColors.surface
+                                            : AppColors.primary, )
                                     ),
                                     subtitle: Text(
                                       Durationformater.formatDuration(
                                         chapter.duration,
                                       ),
-                                      style: TextStyle(
+                                      style:
+                                      Get.textTheme.bodyMedium?.copyWith(
                                         color:
                                         controller.currentChapter.value!.id ==
                                             chapter.id
-                                            ? AppColors.surface
-                                            : AppColors.primary,
+                                            ? AppColors.gray400
+                                            : AppColors.gray700,
                                       ),
                                     ),
-                                    leading: Icon(
-                                      Icons.play_circle_fill_rounded,
+                                    leading:
+
+                                    Icon(controller.currentChapter.value!.id==chapter.id?
+                                     Icons.pause_circle: Icons.play_circle_fill_rounded,
                                       color:
-                                      controller.currentChapter.value!.id ==
-                                          chapter.id
+                                      controller.currentChapter.value!.id == chapter.id
                                           ? AppColors.surface
-                                          : AppColors.primary,
+                                          : null,
                                     ),
                                   ),
-
-                                                                ),
+                                  ),
                                 );
                             }).toList(),
                           );
 
                         } ),
-                    SizedBox(height: 10),
+                    SizedBox(height: AppSpacing.lg),
+                    //listeners Reviews
                     Text(
                       AppStrings.listenersReviews,
+                      style: Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
 
                     ),
+                    SizedBox(height: AppSpacing.sm,),
+                    //Reviews List
                     SizedBox(
                       height: 150,
                       child: PageView.builder(
@@ -320,20 +299,17 @@ class ChaptersScreen extends GetView<PlayerController> {
                             child: Padding(
                               padding: const EdgeInsets.all(AppSizes.padding8),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ListTile(
+
                                     title: Text(
                                       data.userName,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                      style: Get.theme.listTileTheme.titleTextStyle
                                     ),
                                     subtitle: Text(
                                       data.date,
-                                      style: TextStyle(
-                                        color: AppColors.grayText,
-                                      ),
+                                      style: Get.theme.listTileTheme.subtitleTextStyle,
                                     ),
                                     leading: Icon(
                                       Icons.person,
@@ -351,7 +327,6 @@ class ChaptersScreen extends GetView<PlayerController> {
                                         Text(
                                           data.rating
                                               .toString(),
-
                                         ),
                                       ],
                                     ),
@@ -362,7 +337,6 @@ class ChaptersScreen extends GetView<PlayerController> {
                                     ),
                                     child: Text(
                                       data.review,
-
                                     ),
                                   ),
                                 ],

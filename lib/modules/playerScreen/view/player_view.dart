@@ -45,27 +45,22 @@ class PlayerView extends GetView<PlayerController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'PICK UP WHERE YOU LEFT OFF',
-                        style: TextStyle(
-                          fontFamily: Fonts.poppins,
+                      Text(
+                        AppStrings.pickMeWhereYouLeftOff,
+                        style: Get.textTheme.bodySmall?.copyWith(
                           color: AppColors.chapterCardTitle,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
                         ),
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: AppSpacing.sm),
                       Obx(
                         () => SizedBox(
                           width: 350,
                           child: Text(
-                            "Chapter ${controller.currentChapter.value?.chapterNumber}: ${controller.currentChapter.value?.title}",
-                            style: TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 18,
+                            "${AppStrings.chapter} ${controller.currentChapter.value?.chapterNumber}: ${controller.currentChapter.value?.title}",
+                            style: Get.textTheme.titleLarge?.copyWith(
                               color: AppColors.surface,
+                              fontWeight: FontWeight.w400,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ),
@@ -75,45 +70,40 @@ class PlayerView extends GetView<PlayerController> {
                 ),
               ),
             ),
+            SizedBox(height: AppSpacing.md),
             //Book Cover card
             SizedBox(
               width: double.infinity,
               height: 350,
               child: Card(
-                elevation: 10,
+                elevation: AppSizes.cardElevation10,
                 clipBehavior: Clip.antiAlias,
-                child: CachedNetworkImage(imageUrl: controller.currentBook.value!.cover,
-                  fit: BoxFit.cover,)
+                child: CachedNetworkImage(
+                  imageUrl: controller.currentBook.value!.cover,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            const SizedBox(height: 9),
+            const SizedBox(height: AppSpacing.md),
             //Book Title and Author name
-            Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    controller.currentBook.value!.title,
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.primary,
-                    ),
+
+                 Text(
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  controller.currentBook.value!.title,
+                  style: Get.textTheme.headlineSmall?.copyWith(
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  Obx(
-                    () => Text(
-                      '${controller.currentBook.value!.author} : Ch ${controller.currentChapter.value!.chapterNumber} of ${controller.currentBook.value!.totalChapters}',
-                      style: TextStyle(
-                        color: AppColors.playerAuthor,
-                        fontSize: 15,
-                        fontFamily: Fonts.poppins,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
+            Obx(
+              () => Text(
+                '${controller.currentBook.value!.author} : Ch ${controller.currentChapter.value!.chapterNumber} of ${controller.currentBook.value!.totalChapters}',
+                style: Get.textTheme.bodyMedium?.copyWith(
+                  color: AppColors.playerAuthor,
+                ),
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: AppSpacing.md),
             //Slider
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
@@ -136,7 +126,7 @@ class PlayerView extends GetView<PlayerController> {
             //song current Position and Duration values
             Obx(
               () => Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(AppSizes.padding8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -145,14 +135,14 @@ class PlayerView extends GetView<PlayerController> {
                       Durationformater.formatDuration(
                         controller.position.value,
                       ),
-                      style: TextStyle(fontFamily: Fonts.poppins, fontSize: 12),
+                      style: Get.textTheme.bodySmall,
                     ),
                     //max duration
                     Text(
                       Durationformater.formatDuration(
                         controller.duration.value,
                       ),
-                      style: TextStyle(fontFamily: Fonts.poppins, fontSize: 12),
+                      style: Get.textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -204,8 +194,8 @@ class PlayerView extends GetView<PlayerController> {
                     color: AppColors.primary,
                   ),
                 ),
-                 //next song button
-                 NextSongButton(
+                //next song button
+                NextSongButton(
                   onTap: () {
                     controller.skipNext();
                   },
@@ -213,7 +203,7 @@ class PlayerView extends GetView<PlayerController> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: AppSpacing.md),
             //speed,chapter,language button
             Row(
               spacing: 30,
@@ -224,60 +214,61 @@ class PlayerView extends GetView<PlayerController> {
                   padding: EdgeInsets.zero,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                      Get.bottomSheet(
-                        Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: AppColors.surface,
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(5),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const SpeedTile(value: 0.5),
-                              const SpeedTile(value: 0.75),
-                              const SpeedTile(value: 1.0, title: "(Normal)"),
-                              const SpeedTile(value: 1.25),
-                              const SpeedTile(value: 1.5),
-                              const SpeedTile(value: 2.0),
-                            ],
+                    Get.bottomSheet(
+                      Container(
+                        padding: EdgeInsets.all(AppSizes.padding20),
+                        decoration: BoxDecoration(
+                          color: AppColors.surface,
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(AppSizes.radius4),
                           ),
                         ),
-                      );
-                    },
-                    icon: Column(
-                      children: [
-                        Icon(Icons.speed, color: AppColors.primary, size: 25),
-                         Text(
-                          '1.25x',
-                          style: TextStyle(fontSize: 10),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const SpeedTile(value: 0.5),
+                            const SpeedTile(value: 0.75),
+                            const SpeedTile(value: 1.0, title: "(Normal)"),
+                            const SpeedTile(value: 1.25),
+                            const SpeedTile(value: 1.5),
+                            const SpeedTile(value: 2.0),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    );
+                  },
+                  icon: Column(
+                    children: [
+                      Icon(Icons.speed, color: AppColors.primary, size: 25),
+                      Obx(
+                        () => Text(
+                          "${controller.currentSpeed.value.toString()} X",
+                          style: Get.textTheme.bodySmall?.copyWith(
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                ),
                 //chapters button
-                 IconButton(
-                   highlightColor: Colors.transparent,
-                   padding: EdgeInsets.zero,
-                   onPressed: () {
-                      Get.bottomSheet(
-                        isScrollControlled: true,
-                        ChaptersScreen()
-                      );
-                    },
+                IconButton(
+                  highlightColor: Colors.transparent,
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                    Get.bottomSheet(isScrollControlled: true, ChaptersScreen());
+                  },
 
-                    icon: Column(
-                      children: [
-                        Icon(Icons.menu, color: AppColors.primary, size: 25),
-                        Text(
-                          'Chapters',
-                          style: TextStyle(fontSize: 10),
-                        ),
-                      ],
-                    ),
+                  icon: Column(
+                    children: [
+                      Icon(Icons.menu, color: AppColors.primary, size: 25),
+                      Text(
+                        AppStrings.chapters,
+                        style: Get.textTheme.bodySmall?.copyWith(fontSize: 10),
+                      ),
+                    ],
                   ),
+                ),
                 //language button
                 IconButton(
                   padding: EdgeInsets.zero,
@@ -292,8 +283,8 @@ class PlayerView extends GetView<PlayerController> {
                         width: 25,
                       ),
                       Text(
-                        'Language',
-                        style: TextStyle(fontSize: 10),
+                        AppStrings.language,
+                        style: Get.textTheme.bodySmall?.copyWith(fontSize: 10),
                       ),
                     ],
                   ),

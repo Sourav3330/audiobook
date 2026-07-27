@@ -4,6 +4,7 @@ import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/featuredtoday_text.dart';
 import 'package:audio_book/constants/app_colors.dart';
 import 'package:audio_book/constants/app_sizes.dart';
+import 'package:audio_book/helpers/durationFormater.dart';
 import 'package:audio_book/modules/discover/controller/songDetail_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -90,17 +91,19 @@ class SongDetail extends GetView<SongDetailController> {
                 width: double.infinity,
 
                 child: Card(
+                  color: Get.theme.cardTheme.color,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(3),
                   ),
-                  color: AppColors.surface,
-                  child: Column(
+                   child:
+                  Column(
                     children: [
                       ListTile(
                         leading: Icon(Icons.person),
                         title: Text(
                           "Narrator",
-                          style: TextStyle(fontWeight: FontWeight.w600),
+                          style:
+                          TextStyle(fontWeight: FontWeight.w600),
                         ),
                         subtitle: Text(controller.book.author),
                       ),
@@ -111,7 +114,7 @@ class SongDetail extends GetView<SongDetailController> {
                           style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                         subtitle: Text(
-                          controller.getDuration(controller.book.duration),
+                          Durationformater.getDurationText(controller.book.duration),
                         ),
                       ),
                       ListTile(

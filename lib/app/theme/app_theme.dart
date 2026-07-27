@@ -7,9 +7,9 @@ class AppTheme {
   AppTheme._();
 
 static ThemeData get light{
-  
+
   final scheme = ColorScheme.fromSeed(
-      seedColor: AppColors.primary,
+    seedColor: AppColors.primary,
     primary: AppColors.primary,
     surface:AppColors.surface,
     brightness: Brightness.light,
@@ -21,48 +21,81 @@ static ThemeData get light{
     //textTheme: GoogleFonts.abhayaLibreTextTheme(),
   );
   return base.copyWith(
-    textTheme: GoogleFonts.interTextTheme().copyWith(
+      textTheme: GoogleFonts.interTextTheme().copyWith(
 
-      displayLarge: AppTextStyles.displayLarge.copyWith(color: AppColors.primary),
-      displayMedium: AppTextStyles.displayMedium.copyWith(color: AppColors.primary),
-      displaySmall: AppTextStyles.displaySmall.copyWith(color: AppColors.primary),
+        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.primary),
+        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.primary),
+        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.primary),
 
-      headlineLarge: AppTextStyles.headlineLarge.copyWith(color: AppColors.primary),
-      headlineMedium: AppTextStyles.headlineMedium.copyWith(color: AppColors.primary),
-      headlineSmall: AppTextStyles.headlineSmall.copyWith(color: AppColors.primary),
+        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.primary),
+        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.primary),
+        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.primary),
 
-      titleLarge: AppTextStyles.titleLarge.copyWith(color: AppColors.primary),
-      titleMedium: AppTextStyles.titleMedium.copyWith(color: AppColors.primary),
-      titleSmall: AppTextStyles.titleSmall.copyWith(color: AppColors.primary),
+        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.primary),
+        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.primary),
+        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
 
-      bodyLarge: AppTextStyles.bodyLarge.copyWith(color: AppColors.primary),
-      bodyMedium: AppTextStyles.bodyMedium.copyWith(color: AppColors.primary),
-      bodySmall: AppTextStyles.bodySmall.copyWith(color: AppColors.primary),
+        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.primary),
+        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.primary),
+        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.primary),
 
-      labelLarge: AppTextStyles.labelLarge.copyWith(color: AppColors.primary),
-      labelMedium: AppTextStyles.labelMedium.copyWith(color: AppColors.primary),
-      labelSmall: AppTextStyles.labelSmall.copyWith(color: AppColors.primary),
+        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.primary),
+        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.primary),
+        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.primary),
 
-    ),
-    buttonTheme:ButtonThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+      ),
+      buttonTheme:ButtonThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
 
-    textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-            shape:  WidgetStatePropertyAll(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)
-                )
-            )
-        )
-    ),
-    cardTheme: CardThemeData(
-      color: AppColors.surface,
-      elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
+      textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              shape:  WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)
+                  )
+              )
+          )
+      ),
+      cardTheme: CardThemeData(
+        color: AppColors.surface,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
         margin: EdgeInsets.zero,
-      clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.antiAlias,
 
-    )
+      ),
+      iconTheme: IconThemeData(
+        color: AppColors.primary,
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: scheme.primary,
+        dense: true,
+        textColor: scheme.primary,
+        subtitleTextStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.gray700),
+        titleTextStyle: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
+        leadingAndTrailingTextStyle:TextStyle(color: scheme.primary),
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: scheme.surface,
+        foregroundColor: scheme.primary,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: scheme.surface,
+        iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
+          if (states.contains(WidgetState.selected)) {
+            return IconThemeData(color:  scheme.primary, size: 28);
+          }
+          return const IconThemeData(color: Colors.grey, size: 24);
+        }),
+        indicatorColor: scheme.primary,
+        labelTextStyle:
+        WidgetStateProperty.resolveWith((states) {
+          return AppTextStyles.labelMedium.copyWith(
+            color: states.contains(WidgetState.selected)
+                ? scheme.primary
+                : AppColors.gray500,
+          );
+        }),
+      )
   );
 }
 
@@ -70,44 +103,94 @@ static ThemeData get light{
 static ThemeData get dark{
 
   final scheme = ColorScheme.fromSeed(
-      seedColor: Colors.blue,
-    primary: Colors.blue,
-    surface:Colors.blueGrey,
+    seedColor: AppColors.darkPrimary,
+    primary: AppColors.darkPrimary,
+    surface:AppColors.darkSurface,
     brightness: Brightness.dark,
   );
 
   final base = ThemeData(
-    scaffoldBackgroundColor: AppColors.scaffoldBg,
+    scaffoldBackgroundColor: AppColors.darkScaffoldBg,
     colorScheme: scheme,
-    textTheme: GoogleFonts.abhayaLibreTextTheme(),
+    //textTheme: GoogleFonts.abhayaLibreTextTheme(),
   );
   return base.copyWith(
-    textTheme: GoogleFonts.interTextTheme().copyWith(
+      textTheme: GoogleFonts.interTextTheme().copyWith(
 
-      displayLarge: AppTextStyles.displayLarge,
-      displayMedium: AppTextStyles.displayMedium,
-      displaySmall: AppTextStyles.displaySmall,
+        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.primary),
+        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.primary),
+        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.primary),
 
-      headlineLarge: AppTextStyles.headlineLarge,
-      headlineMedium: AppTextStyles.headlineMedium,
-      headlineSmall: AppTextStyles.headlineSmall,
+        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.primary),
+        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.primary),
+        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.primary),
 
-      titleLarge: AppTextStyles.titleLarge,
-      titleMedium: AppTextStyles.titleMedium,
-      titleSmall: AppTextStyles.titleSmall,
+        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.primary),
+        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.primary),
+        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
 
-      bodyLarge: AppTextStyles.bodyLarge,
-      bodyMedium: AppTextStyles.bodyMedium,
-      bodySmall: AppTextStyles.bodySmall,
+        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.primary),
+        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.primary),
+        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.primary),
 
-      labelLarge: AppTextStyles.labelLarge,
-      labelMedium: AppTextStyles.labelMedium,
-      labelSmall: AppTextStyles.labelSmall,
-    ),
+        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.primary),
+        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.primary),
+        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.primary),
 
+      ),
+      buttonTheme:ButtonThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
 
+      textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              shape:  WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)
+                  )
+              )
+          )
+      ),
+      cardTheme: CardThemeData(
+        color: scheme.surface,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
+        margin: EdgeInsets.zero,
+        clipBehavior: Clip.antiAlias,
+
+      ),
+      iconTheme: IconThemeData(
+        color: AppColors.primary,
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: scheme.primary,
+        dense: true,
+        textColor: scheme.primary,
+        subtitleTextStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.gray700),
+        titleTextStyle: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
+        leadingAndTrailingTextStyle:TextStyle(color: scheme.primary),
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: scheme.surface,
+        foregroundColor: scheme.primary,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+          backgroundColor: scheme.surface,
+          iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
+            if (states.contains(WidgetState.selected)) {
+              return IconThemeData(color:  scheme.primary, size: 28);
+            }
+            return const IconThemeData(color: Colors.grey, size: 24);
+          }),
+          indicatorColor: scheme.primary,
+        labelTextStyle:
+        WidgetStateProperty.resolveWith((states) {
+          return AppTextStyles.labelMedium.copyWith(
+            color: states.contains(WidgetState.selected)
+                ? scheme.primary
+                : AppColors.gray500,
+          );
+        }),
+      )
   );
-
 
 }
 }

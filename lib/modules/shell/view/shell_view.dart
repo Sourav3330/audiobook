@@ -55,18 +55,7 @@ class ShellView extends GetView<ShellController> {
         ),
         bottomNavigationBar:
         Obx(()=>
-           NavigationBarTheme(
-            data: NavigationBarThemeData(
-              indicatorColor: Colors.transparent,
-
-              iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
-                if (states.contains(WidgetState.selected)) {
-                  return const IconThemeData(color: AppColors.primary, size: 28);
-                }
-                return const IconThemeData(color: Colors.grey, size: 24);
-              }),
-            ),
-            child: NavigationBar(
+            NavigationBar(
               indicatorColor: Colors.transparent,
               overlayColor: WidgetStatePropertyAll(Colors.transparent),
               labelTextStyle: WidgetStateProperty.resolveWith((states) {
@@ -101,8 +90,6 @@ class ShellView extends GetView<ShellController> {
               ],
             ),
           ),
-        ),
-
     );
   }
 }
