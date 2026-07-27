@@ -52,7 +52,7 @@ class DiscoverBanner extends StatelessWidget {
                       width: 350,
                       child: Text(
                         banner.title,
-                        style: Get.textTheme.headlineLarge?.copyWith(
+                        style:  Theme.of(context).textTheme.headlineLarge?.copyWith(
                           overflow: TextOverflow.ellipsis,
                           color: AppColors.bannerTitle,
                         ),
@@ -60,7 +60,7 @@ class DiscoverBanner extends StatelessWidget {
                     ),
                     Text(
                       banner.author,
-                      style: Get.textTheme.bodyMedium?.copyWith(
+                      style:  Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: AppColors.scaffoldBg,
                       ),
                     ),
@@ -72,14 +72,14 @@ class DiscoverBanner extends StatelessWidget {
                           onPressed: () {
                             detailOnTap(banner);
                           },
-                          style: Get.theme.textButtonTheme.style?.copyWith(
+                          style:  Theme.of(context).textButtonTheme.style?.copyWith(
                             side: WidgetStatePropertyAll(
                               BorderSide(color: AppColors.yelloPrimary),
                             ),
                           ),
                           child: Text(
                             AppStrings.viewDetailButton,
-                            style: Get.textTheme.bodyMedium?.copyWith(
+                            style:  Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColors.yelloPrimary,
                             ),
                           ),
@@ -89,7 +89,7 @@ class DiscoverBanner extends StatelessWidget {
                         //play button
                         TextButton(
                           style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(AppColors.primary),side: WidgetStatePropertyAll(BorderSide(width: 1))),
-                          child: Text(AppStrings.playNowButton,style: Get.textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)),
+                          child: Text(AppStrings.playNowButton,style:  Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)),
                           onPressed: (){
                             playOnTap(banner);
                           },

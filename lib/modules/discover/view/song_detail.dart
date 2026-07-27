@@ -31,8 +31,8 @@ class SongDetail extends GetView<SongDetailController> {
                 children: [
                   SizedBox(
                     child: ClipRRect(
-                      child: CommonNetworkImage(imageUrl:
-                        controller.book.cover,
+                      child: CommonNetworkImage(
+                        imageUrl: controller.book.cover,
                       ),
                     ),
                   ),
@@ -91,19 +91,17 @@ class SongDetail extends GetView<SongDetailController> {
                 width: double.infinity,
 
                 child: Card(
-                  color: Get.theme.cardTheme.color,
+                  color: Theme.of(context).cardTheme.color,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(3),
                   ),
-                   child:
-                  Column(
+                  child: Column(
                     children: [
                       ListTile(
                         leading: Icon(Icons.person),
                         title: Text(
                           "Narrator",
-                          style:
-                          TextStyle(fontWeight: FontWeight.w600),
+                          style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                         subtitle: Text(controller.book.author),
                       ),
@@ -114,7 +112,9 @@ class SongDetail extends GetView<SongDetailController> {
                           style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                         subtitle: Text(
-                          Durationformater.getDurationText(controller.book.duration),
+                          Durationformater.getDurationText(
+                            controller.book.duration,
+                          ),
                         ),
                       ),
                       ListTile(
@@ -172,13 +172,16 @@ class SongDetail extends GetView<SongDetailController> {
                 child: Container(
                   height: 40,
                   width: 40,
-                  decoration: BoxDecoration(
-                    color: AppColors.songDetailLikeSurface,
-                  ),
+                  decoration: BoxDecoration(),
                   child: IconButton(
-                    onPressed: () {
-                    },
-                    icon: SvgPicture.asset('assets/icon/heart.svg'),
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/icon/heart.svg',
+                      colorFilter: ColorFilter.mode(
+                        Theme.of(context).colorScheme.onSurface,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ),
                 ),
               ),

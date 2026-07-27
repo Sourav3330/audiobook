@@ -1,13 +1,10 @@
-import 'dart:math';
 
-import 'package:audio_book/app/theme/text_styles.dart';
 import 'package:audio_book/common%20widget/common_network_Image.dart';
 import 'package:audio_book/common%20widget/ratings_widget.dart';
 import 'package:audio_book/constants/app_sizes.dart';
 import 'package:audio_book/modules/playerScreen/controllers/player_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../app/theme/fonts.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_strings.dart';
 import '../helpers/durationFormater.dart';
@@ -24,7 +21,6 @@ class ChaptersScreen extends GetView<PlayerController> {
       child: Container(
         height: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.scaffoldBg,
           borderRadius: BorderRadius.vertical(top: Radius.circular(5)),
         ),
         //information on cover
@@ -44,6 +40,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                       child: ClipRRect(
                         child: CommonNetworkImage(
                           imageUrl: controller.currentBook.value!.cover,
+                          borderRadius: 0,
 
                         ),
                       ),
@@ -76,12 +73,12 @@ class ChaptersScreen extends GetView<PlayerController> {
                               const SizedBox(width: AppSpacing.md),
                               Text(
                                 controller.currentBook.value!.rating.toString(),
-                                style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
+                                style:  Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
                               ),
                               const SizedBox(width: AppSpacing.md),
                               Text(
                                 '(${TotalReviews.totalReviews(5100)} reviews)',
-                                style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
+                                style:  Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.gray400)
                               ),
                             ],
                           ),
@@ -90,12 +87,12 @@ class ChaptersScreen extends GetView<PlayerController> {
                             width: 350,
                             child: Text(
                               controller.currentBook.value!.title,
-                              style: Get.textTheme.headlineMedium?.copyWith(color: AppColors.bannerTitle,overflow: TextOverflow.ellipsis),
+                              style:  Theme.of(context).textTheme.headlineMedium?.copyWith(color: AppColors.bannerTitle,overflow: TextOverflow.ellipsis),
                             ),
                           ),
                           Text(
                             controller.currentBook.value!.author,
-                            style: Get.textTheme.bodyLarge?.copyWith(color: AppColors.chapterListBookAuthor)
+                            style:  Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppColors.chapterListBookAuthor)
 
                           ),
                           const SizedBox(height: AppSpacing.lg),
@@ -112,11 +109,10 @@ class ChaptersScreen extends GetView<PlayerController> {
                       bottom: 0,
                       child: Card(
                         child: Container(
-
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: AppColors.surface,
+
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -131,12 +127,12 @@ class ChaptersScreen extends GetView<PlayerController> {
                                   children: [
                                     Text(
                                       AppStrings.duration,
-                                      style: Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
+                                      style:  Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
                                         Durationformater.getDurationText(controller.currentBook.value!.duration),
-                                      style: Get.textTheme.titleMedium
+                                      style:  Theme.of(context).textTheme.titleMedium
                                     ),
                                   ],
                                 ),
@@ -149,13 +145,13 @@ class ChaptersScreen extends GetView<PlayerController> {
                                   children: [
                                     Text(
                                       AppStrings.language,
-                                      style:Get.textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
+                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.gray600)
 
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
                                       controller.currentBook.value!.language,
-                                      style: Get.textTheme.titleMedium
+                                      style:  Theme.of(context).textTheme.titleMedium
 
                                     ),
                                   ],
@@ -178,11 +174,11 @@ class ChaptersScreen extends GetView<PlayerController> {
                     //synopsis
                     Text(
                       AppStrings.synopsys,
-                      style: Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
+                      style:  Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
                     ),
                     Text(
                       controller.currentBook.value!.description,
-                      style: Get.textTheme.bodyMedium
+                      style:  Theme.of(context).textTheme.bodyMedium
                     ),
                     SizedBox(height: AppSpacing.lg),
                     //chapters
@@ -191,7 +187,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                       children: [
                         Text(
                           AppStrings.chapters,
-                          style:  Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
+                          style:   Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
                         ),
                         TextButton(
                           onPressed:(){
@@ -200,7 +196,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                           child:
                           Text(
                           AppStrings.seeAll,
-                          style:Get.textTheme.titleSmall
+                          style: Theme.of(context).textTheme.titleSmall
                         ),
                         )
                       ],
@@ -225,12 +221,12 @@ class ChaptersScreen extends GetView<PlayerController> {
                                   color:
                                   controller.currentChapter.value!.id ==
                                       chapter.id
-                                      ? AppColors.primary
+                                      ? Theme.of(context).colorScheme.primary
                                       : AppColors.surface,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5),
                                     side: BorderSide(
-                                      color: AppColors.chapterBorder,
+                                      color:  Theme.of(context).colorScheme.onPrimary,
                                       width: 1,
                                     ),
                                   ),
@@ -238,26 +234,26 @@ class ChaptersScreen extends GetView<PlayerController> {
                                   ListTile(
                                     tileColor: controller.currentChapter.value!.id ==
                                             chapter.id
-                                            ? AppColors.primary
-                                            : AppColors.surface,
+                                            ?  Theme.of(context).colorScheme.primary
+                                            :  Theme.of(context).colorScheme.surface,
                                     title: Text(
                                       chapter.title,
-                                      style:Get.theme.listTileTheme.titleTextStyle?.copyWith(color:
+                                      style: Theme.of(context).listTileTheme.titleTextStyle?.copyWith(color:
                                         controller.currentChapter.value!.id ==
                                         chapter.id
-                                        ? AppColors.surface
-                                            : AppColors.primary, )
+                                        ?  Theme.of(context).colorScheme.onPrimary
+                                            :  Theme.of(context).colorScheme.onSurface, )
                                     ),
                                     subtitle: Text(
                                       Durationformater.formatDuration(
                                         chapter.duration,
                                       ),
                                       style:
-                                      Get.textTheme.bodyMedium?.copyWith(
+                                      Theme.of(context).textTheme.bodyMedium?.copyWith(
                                         color:
                                         controller.currentChapter.value!.id ==
                                             chapter.id
-                                            ? AppColors.gray400
+                                            ?  Theme.of(context).colorScheme.onPrimary
                                             : AppColors.gray700,
                                       ),
                                     ),
@@ -267,7 +263,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                                      Icons.pause_circle: Icons.play_circle_fill_rounded,
                                       color:
                                       controller.currentChapter.value!.id == chapter.id
-                                          ? AppColors.surface
+                                          ?  Theme.of(context).colorScheme.onPrimary
                                           : null,
                                     ),
                                   ),
@@ -281,7 +277,7 @@ class ChaptersScreen extends GetView<PlayerController> {
                     //listeners Reviews
                     Text(
                       AppStrings.listenersReviews,
-                      style: Get.textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
+                      style:  Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 25,fontWeight: FontWeight.w500)
 
                     ),
                     SizedBox(height: AppSpacing.sm,),
@@ -305,15 +301,15 @@ class ChaptersScreen extends GetView<PlayerController> {
 
                                     title: Text(
                                       data.userName,
-                                      style: Get.theme.listTileTheme.titleTextStyle
+                                      style:  Theme.of(context).listTileTheme.titleTextStyle
                                     ),
                                     subtitle: Text(
                                       data.date,
-                                      style: Get.theme.listTileTheme.subtitleTextStyle,
+                                      style:  Theme.of(context).listTileTheme.subtitleTextStyle,
                                     ),
                                     leading: Icon(
                                       Icons.person,
-                                      color: AppColors.primary,
+                                      color:  Theme.of(context).colorScheme.onSurface,
                                     ),
                                     trailing: Row(
                                       mainAxisSize: MainAxisSize.min,

@@ -10,8 +10,7 @@ class CommonSearchField extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: TextField(
         decoration: InputDecoration(
-          fillColor: AppColors.surface,
-          filled: true,
+
           prefixIcon: Icon(Icons.search),
           hintText: hint,
           hintStyle: TextStyle(fontWeight: FontWeight.w600),

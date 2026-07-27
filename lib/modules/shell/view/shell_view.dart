@@ -28,28 +28,30 @@ class ShellView extends GetView<ShellController> {
   ShellView({super.key});
   @override
   Widget build(BuildContext context) {
-    print("DiscoverView build@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     return Scaffold(
-        body: Column(
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            Expanded(
-              child:
               Obx(()=>
                  IndexedStack(
                   index: controller.currentIndex.value,
                   children: pages,
                 ),
               ),
-            ),
-            Obx(()=>
-            controller.player.currentBook.value == null
-                ? SizedBox()
-                : InkWell(
-              onTap: (){
-                Get.toNamed(AppRoutes.player);
-              },
-                  child:MiniPlayer(),
-                ),
+            Positioned(
+              left: 3,
+              right: 3,
+              bottom: 10,
+              child: Obx(()=>
+              controller.player.currentBook.value == null
+                  ? SizedBox()
+                  : InkWell(
+                onTap: (){
+                  Get.toNamed(AppRoutes.player);
+                },
+                    child:MiniPlayer(),
+                  ),
+              ),
             )
           ],
         ),

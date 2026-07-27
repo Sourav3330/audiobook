@@ -1,6 +1,7 @@
 import 'package:audio_book/app/theme/text_styles.dart';
 import 'package:audio_book/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
@@ -12,6 +13,7 @@ static ThemeData get light{
     seedColor: AppColors.primary,
     primary: AppColors.primary,
     surface:AppColors.surface,
+    onSurface: AppColors.primary,
     brightness: Brightness.light,
   );
 
@@ -23,25 +25,25 @@ static ThemeData get light{
   return base.copyWith(
       textTheme: GoogleFonts.interTextTheme().copyWith(
 
-        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.primary),
-        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.primary),
-        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.primary),
+        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.onSurface),
+        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.onSurface),
+        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.onSurface),
 
-        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.primary),
-        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.primary),
-        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.primary),
+        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.onSurface),
+        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.onSurface),
+        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.onSurface),
 
-        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.primary),
-        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.primary),
-        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
+        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.onSurface),
+        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.onSurface),
+        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.onSurface),
 
-        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.primary),
-        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.primary),
-        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.primary),
+        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.onSurface),
+        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.onSurface),
+        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.onSurface),
 
-        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.primary),
-        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.primary),
-        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.primary),
+        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.onSurface),
+        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.onSurface),
+        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.onSurface),
 
       ),
       buttonTheme:ButtonThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
@@ -63,9 +65,7 @@ static ThemeData get light{
         clipBehavior: Clip.antiAlias,
 
       ),
-      iconTheme: IconThemeData(
-        color: AppColors.primary,
-      ),
+
       listTileTheme: ListTileThemeData(
         iconColor: scheme.primary,
         dense: true,
@@ -95,7 +95,25 @@ static ThemeData get light{
                 : AppColors.gray500,
           );
         }),
-      )
+      ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: scheme.surface,
+      dragHandleColor: scheme.primary,
+    ),
+      inputDecorationTheme:InputDecorationThemeData(
+          filled: true,
+          fillColor: scheme.surface,
+          iconColor: scheme.primary,
+          prefixIconColor: scheme.primary,
+          suffixIconColor: scheme.primary
+      ),
+      iconButtonTheme: IconButtonThemeData(
+        style:ButtonStyle(backgroundColor: WidgetStatePropertyAll(base.scaffoldBackgroundColor),
+            iconColor: WidgetStatePropertyAll(scheme.primary),foregroundColor: WidgetStatePropertyAll(scheme.primary)),
+      ),
+      sliderTheme: SliderThemeData(
+        activeTrackColor: AppColors.colorOnPrimary,
+  )
   );
 }
 
@@ -105,7 +123,9 @@ static ThemeData get dark{
   final scheme = ColorScheme.fromSeed(
     seedColor: AppColors.darkPrimary,
     primary: AppColors.darkPrimary,
+    onPrimary: AppColors.darkOnPrimary,
     surface:AppColors.darkSurface,
+    onSurface:AppColors.darkOnSurface,
     brightness: Brightness.dark,
   );
 
@@ -117,25 +137,25 @@ static ThemeData get dark{
   return base.copyWith(
       textTheme: GoogleFonts.interTextTheme().copyWith(
 
-        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.primary),
-        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.primary),
-        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.primary),
+        displayLarge: AppTextStyles.displayLarge.copyWith(color: scheme.onSurface),
+        displayMedium: AppTextStyles.displayMedium.copyWith(color: scheme.onSurface),
+        displaySmall: AppTextStyles.displaySmall.copyWith(color: scheme.onSurface),
 
-        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.primary),
-        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.primary),
-        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.primary),
+        headlineLarge: AppTextStyles.headlineLarge.copyWith(color: scheme.onSurface),
+        headlineMedium: AppTextStyles.headlineMedium.copyWith(color: scheme.onSurface),
+        headlineSmall: AppTextStyles.headlineSmall.copyWith(color: scheme.onSurface),
 
-        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.primary),
-        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.primary),
-        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.primary),
+        titleLarge: AppTextStyles.titleLarge.copyWith(color: scheme.onSurface),
+        titleMedium: AppTextStyles.titleMedium.copyWith(color: scheme.onSurface),
+        titleSmall: AppTextStyles.titleSmall.copyWith(color: scheme.onSurface),
 
-        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.primary),
-        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.primary),
-        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.primary),
+        bodyLarge: AppTextStyles.bodyLarge.copyWith(color: scheme.onSurface),
+        bodyMedium: AppTextStyles.bodyMedium.copyWith(color: scheme.onSurface),
+        bodySmall: AppTextStyles.bodySmall.copyWith(color: scheme.onSurface),
 
-        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.primary),
-        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.primary),
-        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.primary),
+        labelLarge: AppTextStyles.labelLarge.copyWith(color: scheme.onSurface),
+        labelMedium: AppTextStyles.labelMedium.copyWith(color: scheme.onSurface),
+        labelSmall: AppTextStyles.labelSmall.copyWith(color: scheme.onSurface),
 
       ),
       buttonTheme:ButtonThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
@@ -157,9 +177,7 @@ static ThemeData get dark{
         clipBehavior: Clip.antiAlias,
 
       ),
-      iconTheme: IconThemeData(
-        color: AppColors.primary,
-      ),
+
       listTileTheme: ListTileThemeData(
         iconColor: scheme.primary,
         dense: true,
@@ -189,7 +207,27 @@ static ThemeData get dark{
                 : AppColors.gray500,
           );
         }),
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: scheme.surface,
+        dragHandleColor: scheme.primary,
+      ),
+    inputDecorationTheme:InputDecorationThemeData(
+      filled: true,
+      fillColor: scheme.surface,
+      iconColor: scheme.primary,
+      prefixIconColor: scheme.primary,
+      suffixIconColor: scheme.primary,
+
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style:ButtonStyle(backgroundColor: WidgetStatePropertyAll(base.scaffoldBackgroundColor),
+      iconColor: WidgetStatePropertyAll(scheme.primary),foregroundColor: WidgetStatePropertyAll(scheme.primary)),
+    ),
+      sliderTheme: SliderThemeData(
+        activeTrackColor: AppColors.colorOnPrimary,
       )
+
   );
 
 }

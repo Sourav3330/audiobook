@@ -32,11 +32,11 @@ class DiscoverView extends GetView<DiscoverController> {
             SliverToBoxAdapter(
               child:  Row(
                   children: [
-                    Text(AppStrings.newReleases,style: Get.textTheme.titleLarge,),
+                    Text(AppStrings.newReleases,style:  Theme.of(context).textTheme.titleLarge,),
                     Spacer(),
                     Text(
                       AppStrings.seeAll,
-                      style: Get.textTheme.titleSmall
+                      style:  Theme.of(context).textTheme.titleSmall
                     ),
                   ],
                 ),
@@ -70,7 +70,7 @@ class DiscoverView extends GetView<DiscoverController> {
             //recommended for you
             SliverToBoxAdapter(
                 child: Text(
-                  AppStrings.recommendedForYou,style: Get.textTheme.titleLarge,
+                  AppStrings.recommendedForYou,style:  Theme.of(context).textTheme.titleLarge,
                 ),
               ),
 

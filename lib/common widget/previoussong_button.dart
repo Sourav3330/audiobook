@@ -17,11 +17,17 @@ class PreviousSongButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  IconButton(
+
       padding: EdgeInsets.zero,
+    //   style: IconButton.styleFrom(
+    // backgroundColor: Theme.of(context).colorScheme.surface,
+    // foregroundColor: Theme.of(context).colorScheme.primary,
+    // padding: EdgeInsets.zero,),
       onPressed: onTap,
       icon: Icon(
+
         Icons.skip_previous_rounded,
-        color:color ?? AppColors.primary,
+        //color:color ?? AppColors.primary,
         size: size,
       ),
     );

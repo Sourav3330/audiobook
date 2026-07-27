@@ -33,21 +33,21 @@ class VerticalBookCard extends StatelessWidget {
           child: Text(
             book.title,
             style:
-              Get.textTheme.titleMedium?.copyWith(overflow:TextOverflow.ellipsis)
+            Theme.of(context).textTheme.titleMedium?.copyWith(overflow:TextOverflow.ellipsis)
           ),
         ),
         Text(
           book.author,
-          style: Get.textTheme.bodyMedium),
+          style:  Theme.of(context).textTheme.bodyMedium),
          SizedBox(height: AppSpacing.xxs,),
         Row(
           children: [
             Text(
               AppStrings.moreDetails,
               style:
-             Get.textTheme.titleSmall?.copyWith(fontWeight:FontWeight.w600)
+             Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight:FontWeight.w600)
             ),
-            Icon(Icons.arrow_forward),
+            Icon(Icons.arrow_forward,color: Theme.of(context).colorScheme.primary,),
           ],
         ),
       ],

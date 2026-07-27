@@ -47,7 +47,7 @@ class PlayerView extends GetView<PlayerController> {
                     children: [
                       Text(
                         AppStrings.pickMeWhereYouLeftOff,
-                        style: Get.textTheme.bodySmall?.copyWith(
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.chapterCardTitle,
                         ),
                       ),
@@ -57,7 +57,7 @@ class PlayerView extends GetView<PlayerController> {
                           width: 350,
                           child: Text(
                             "${AppStrings.chapter} ${controller.currentChapter.value?.chapterNumber}: ${controller.currentChapter.value?.title}",
-                            style: Get.textTheme.titleLarge?.copyWith(
+                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               color: AppColors.surface,
                               fontWeight: FontWeight.w400,
                               overflow: TextOverflow.ellipsis,
@@ -91,14 +91,14 @@ class PlayerView extends GetView<PlayerController> {
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   controller.currentBook.value!.title,
-                  style: Get.textTheme.headlineSmall?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
             Obx(
               () => Text(
                 '${controller.currentBook.value!.author} : Ch ${controller.currentChapter.value!.chapterNumber} of ${controller.currentBook.value!.totalChapters}',
-                style: Get.textTheme.bodyMedium?.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: AppColors.playerAuthor,
                 ),
               ),
@@ -135,14 +135,14 @@ class PlayerView extends GetView<PlayerController> {
                       Durationformater.formatDuration(
                         controller.position.value,
                       ),
-                      style: Get.textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     //max duration
                     Text(
                       Durationformater.formatDuration(
                         controller.duration.value,
                       ),
-                      style: Get.textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -166,7 +166,7 @@ class PlayerView extends GetView<PlayerController> {
                   },
                   icon: Image.asset(
                     'assets/icon/backward10second.png',
-                    color: AppColors.primary,
+                    color: Theme.of(context).colorScheme.primary,colorBlendMode: BlendMode.srcIn,
                     height: 30,
                     width: 30,
                   ),
@@ -191,7 +191,7 @@ class PlayerView extends GetView<PlayerController> {
                     'assets/icon/forward10second.png',
                     height: 30,
                     width: 30,
-                    color: AppColors.primary,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 //next song button
@@ -218,7 +218,7 @@ class PlayerView extends GetView<PlayerController> {
                       Container(
                         padding: EdgeInsets.all(AppSizes.padding20),
                         decoration: BoxDecoration(
-                          color: AppColors.surface,
+                          color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(AppSizes.radius4),
                           ),
@@ -226,6 +226,7 @@ class PlayerView extends GetView<PlayerController> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            const SpeedTile(value: 0.25),
                             const SpeedTile(value: 0.5),
                             const SpeedTile(value: 0.75),
                             const SpeedTile(value: 1.0, title: "(Normal)"),
@@ -239,11 +240,11 @@ class PlayerView extends GetView<PlayerController> {
                   },
                   icon: Column(
                     children: [
-                      Icon(Icons.speed, color: AppColors.primary, size: 25),
+                      Icon(Icons.speed, size: 25),
                       Obx(
                         () => Text(
                           "${controller.currentSpeed.value.toString()} X",
-                          style: Get.textTheme.bodySmall?.copyWith(
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             fontSize: 10,
                           ),
                         ),
@@ -256,15 +257,18 @@ class PlayerView extends GetView<PlayerController> {
                   highlightColor: Colors.transparent,
                   padding: EdgeInsets.zero,
                   onPressed: () {
-                    Get.bottomSheet(isScrollControlled: true, ChaptersScreen());
+                    Get.bottomSheet(
+                        isScrollControlled: true, ChaptersScreen(),
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor
+                    );
                   },
 
                   icon: Column(
                     children: [
-                      Icon(Icons.menu, color: AppColors.primary, size: 25),
+                      Icon(Icons.menu, size: 25),
                       Text(
                         AppStrings.chapters,
-                        style: Get.textTheme.bodySmall?.copyWith(fontSize: 10),
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -281,10 +285,11 @@ class PlayerView extends GetView<PlayerController> {
                         'assets/icon/language.png',
                         height: 25,
                         width: 25,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       Text(
                         AppStrings.language,
-                        style: Get.textTheme.bodySmall?.copyWith(fontSize: 10),
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 10),
                       ),
                     ],
                   ),

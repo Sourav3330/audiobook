@@ -29,7 +29,7 @@ class CommonTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label.toUpperCase(), style: TextStyle(color: AppColors.primary)),
+        Text(label.toUpperCase(), style: TextStyle(color:Theme.of(context).colorScheme.primary)),
         SizedBox(height: 5),
         Padding(
           padding: const EdgeInsets.only(bottom: 15),
@@ -43,11 +43,11 @@ class CommonTextField extends StatelessWidget {
               FocusManager.instance.primaryFocus!.unfocus();
             },
             decoration: InputDecoration(
-              prefixIcon: Icon(prefixIcon, color: AppColors.primary),
-              suffixIcon: Icon(suffixIcon, color: AppColors.primary),
+              prefixIcon: Icon(prefixIcon, color: Theme.of(context).colorScheme.primary),
+              suffixIcon: Icon(suffixIcon, color: Theme.of(context).colorScheme.primary),
               hintText: hintText,
               hintStyle: TextStyle(color: AppColors.grayText, fontSize: 15),
-              fillColor: AppColors.scaffoldBg,
+              fillColor: Theme.of(context).scaffoldBackgroundColor,
               filled: true,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),

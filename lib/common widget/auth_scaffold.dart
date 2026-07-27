@@ -65,7 +65,7 @@ class AuthScaffold extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Card(
-                  color: AppColors.surface,
+
                   child: Padding(
                     padding: const EdgeInsets.all(28),
                     child: Column(
@@ -73,27 +73,7 @@ class AuthScaffold extends StatelessWidget {
                         cardChild,
                         SizedBox(height: 20),
                         bottomButtonWidget,
-                        // CommonBottomButton(text: buttonText, onTap: buttonOnTap, isLoading: isLoading),
-                        // TextButton(
-                        //   onPressed:buttonOnTap,
-                        //   child: Container(
-                        //     width:double.infinity,
-                        //     height: 50,
-                        //     decoration: BoxDecoration(
-                        //       borderRadius: BorderRadius.circular(10),
-                        //       color: AppColors.primary,
-                        //     ),
-                        //     child: Center(
-                        //       child: Text(
-                        //         buttonText,
-                        //         style: TextStyle(
-                        //           fontSize: 15,
-                        //           color: Colors.white,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
+
                         Column(
                           children: [
                             SizedBox(height: 30),
@@ -116,7 +96,7 @@ class AuthScaffold extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       width: 2,
-                                      color: AppColors.scaffoldBg,
+                                        color: Theme.of(context).scaffoldBackgroundColor
                                     ),
                                   ),
                                   child: Center(
@@ -149,7 +129,7 @@ class AuthScaffold extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       width: 2,
-                                      color: AppColors.scaffoldBg,
+                                      color: Theme.of(context).scaffoldBackgroundColor
                                     ),
                                   ),
                                   child: Center(
@@ -191,7 +171,8 @@ class AuthScaffold extends StatelessWidget {
                 children: [
                   Text(
                     bottomLoginOrSignupMessage,
-                    style: TextStyle(fontSize: 15, color: AppColors.primary),
+                    style: TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.primary
+              ),
                   ),
                   InkWell(
                     onTap: onTapLoginSignup,
@@ -200,7 +181,7 @@ class AuthScaffold extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
+                        color:Theme.of(context).colorScheme.primary,
                       ),
                     ),
                   ),

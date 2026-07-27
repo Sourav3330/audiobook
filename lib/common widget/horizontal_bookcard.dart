@@ -26,9 +26,9 @@ class HorizontalBookCard extends StatelessWidget {
             ),
       title: Text(
                   book.title,
-                  style: Get.theme.listTileTheme.titleTextStyle,),
-      subtitle:  Text(book.author, style: Get.theme.listTileTheme.subtitleTextStyle,),
-      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.playlist_add)),
+                  style:  Theme.of(context).listTileTheme.titleTextStyle,),
+      subtitle:  Text(book.author, style:  Theme.of(context).listTileTheme.subtitleTextStyle,),
+      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.playlist_add,color: Theme.of(context).colorScheme.primary,)),
     );
 
   }

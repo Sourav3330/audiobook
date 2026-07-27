@@ -14,8 +14,10 @@ class AppColors {
 
   //dark theme
   static const Color darkPrimary = Color(0xFFFFFFFF);
+  static const Color darkOnPrimary = Color(0xFF1A0F1F);
   static const Color darkColorOnPrimary = Colors.white;
   static const Color darkSurface = Color(0xFF261A2B);
+  static const Color darkOnSurface = Color(0xFFEDDED7);
   static const Color darkScaffoldBg = Color(0xFF1A0F1F);
   static const Color darkYelloPrimary = Color(0xFFF6BE39);
   static const Color darkGrayText = Color(0xFF6B7280);

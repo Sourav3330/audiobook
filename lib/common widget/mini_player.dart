@@ -20,12 +20,9 @@ class MiniPlayer extends GetView<PlayerController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: AppColors.primary,
-            borderRadius: BorderRadius.circular(15),
-          ),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Card(
+          elevation: 10,
           child:  Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -66,23 +63,17 @@ class MiniPlayer extends GetView<PlayerController> {
                                 width: 190,
                                 child: Text(
                                   controller.player.currentChapter.value!.title,
-                                  style: TextStyle(
-                                    overflow: TextOverflow.ellipsis,
-                                    color: AppColors.surface,
-                                    fontFamily: Fonts.poppins,
-                                  ),
+                                  style: Theme.of(context).textTheme.titleMedium?.copyWith(overflow: TextOverflow.ellipsis,)
                                 ),
                               ),
-
                                Row(
-
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-
                                     //slider
                                     Expanded(
                                       child: CommonSlider(
+                                        active: Theme.of(context).colorScheme.primary,
                                         miniPlayer: true,
                                         value: controller.player.position.value.inSeconds
                                             .toDouble(),
@@ -93,6 +84,7 @@ class MiniPlayer extends GetView<PlayerController> {
                                             Duration(seconds: value.toInt()),
                                           );
                                         },
+
                                       ),
                                     ),
                                     SizedBox(width: 5,),
@@ -141,7 +133,7 @@ class MiniPlayer extends GetView<PlayerController> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                  PreviousSongButton(onTap: controller.skipPrevious,size: 30,color: AppColors.surface,),
+                  PreviousSongButton(onTap: controller.skipPrevious,color: Theme.of(context).colorScheme.onPrimary),
                   PlayPauseButton(
                     size: 40,
                     onTap: () {
@@ -151,7 +143,8 @@ class MiniPlayer extends GetView<PlayerController> {
                     isLoading: controller.isLoading.value,
                     miniPlayer: true,
                   ),
-                  NextSongButton(onTap: controller.skipNext,color: AppColors.surface,size: 30,),
+                  NextSongButton(onTap: controller.skipNext,
+                    color: Theme.of(context).colorScheme.onPrimary),
                 ],)
 
 

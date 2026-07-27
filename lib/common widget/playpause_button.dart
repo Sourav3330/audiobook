@@ -32,49 +32,19 @@ class PlayPauseButton extends StatelessWidget {
                 ? Icon(
                     Icons.pause_circle,
                     size: miniPlayer ? size ?? 30 : 100,
-                    color: miniPlayer ? AppColors.surface : AppColors.primary,
+                   // color: miniPlayer ? AppColors.surface : AppColors.primary,
                   )
                 : Icon(
                     Icons.play_circle,
                     size: miniPlayer ? size ?? 30 : 100,
-                    color: miniPlayer ? AppColors.surface : AppColors.primary,
-                  ),
+                   // color: miniPlayer ? AppColors.surface : AppColors.primary,
+
+            ),
             onPressed: onTap,
           ),
 
         ),
       ],
     );
-    // SizedBox(
-    //   height:miniPlayer ? size ?? 50: 100 ,
-    //   width:miniPlayer ? size ?? 50: 100,
-    // child:
-    //   isLoading?Center(
-    //       child: CircularProgressIndicator(
-    //     color: miniPlayer?Colors.white:AppColors.primary,
-    //
-    //   )):
-    //   Center(
-    //     child: IconButton(
-    //       padding: EdgeInsets.zero,
-    //      highlightColor: Colors.transparent,
-    //     onPressed:onTap,
-    //     icon: isPlaying == true
-    //         ? Center(
-    //           child: Icon(
-    //                     Icons.pause_circle_rounded,
-    //                     color:miniPlayer?AppColors.scaffoldBg: AppColors.primary,
-    //                     size: size,
-    //                   ),
-    //         )
-    //         : Center(
-    //           child: Icon(
-    //                     Icons.play_circle_fill_rounded,
-    //                     color:miniPlayer? AppColors.surface:AppColors.primary,
-    //                     size: size,
-    //                   ),
-    //         ),
-    //         ),
-    //   ));
   }
 }

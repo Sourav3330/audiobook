@@ -28,7 +28,7 @@ class FeaturedTodayText extends StatelessWidget {
         child:Center(
           child:  Text(
             AppStrings.featuredToday,
-            style:Get.textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.featuredContainerTextColor)
           ),
         ),
       ),
