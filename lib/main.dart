@@ -3,16 +3,18 @@ import 'package:audio_book/app/routes/app_pages.dart';
 import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/app/theme/app_theme.dart';
 import 'package:audio_book/constants/app_strings.dart';
+import 'package:audio_book/data/service/hiveServices/hive_intializer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'firebase_options.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
-  final sw = Stopwatch()..start();
-  await Firebase.initializeApp(
+   //intialize Hive
+   await HiveInitializer.initializeHive();
+   //Initialize Firebase
+   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());

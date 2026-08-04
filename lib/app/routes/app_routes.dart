@@ -9,4 +9,9 @@ class AppRoutes {
   static const String cateDetail = '/cateDetail';
   static const String player = '/player';
   static const String test = '/test';
+  static const String appLock = '/appLock';
+  static const String privacy = '/privacy';
+  static const String plans = '/plans';
+  static const String help = '/help';
+  static const String pushNotification = '/pushNotification';
 }

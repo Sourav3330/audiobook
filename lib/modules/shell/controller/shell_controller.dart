@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class ShellController extends GetxController{
 
-  RxInt currentIndex = 0.obs;
+  RxInt currentIndex = 3.obs;
   final AudioService player = Get.find<AudioService>();
 
   void changeIndex (int index){

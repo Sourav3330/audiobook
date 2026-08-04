@@ -75,7 +75,7 @@ static ThemeData get light{
         leadingAndTrailingTextStyle:TextStyle(color: scheme.primary),
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: scheme.surface,
+        backgroundColor: base.scaffoldBackgroundColor,
         foregroundColor: scheme.primary,
       ),
       navigationBarTheme: NavigationBarThemeData(
@@ -113,6 +113,11 @@ static ThemeData get light{
       ),
       sliderTheme: SliderThemeData(
         activeTrackColor: AppColors.colorOnPrimary,
+  ),
+  dialogTheme: DialogThemeData(
+    backgroundColor: scheme.surface,
+    iconColor: scheme.primary,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
   )
   );
 }

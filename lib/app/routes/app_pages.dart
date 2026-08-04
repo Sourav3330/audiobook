@@ -8,6 +8,16 @@ import 'package:audio_book/modules/library/bindings/cate_data_binding.dart';
 import 'package:audio_book/modules/library/view/cate_data_view.dart';
 import 'package:audio_book/modules/playerScreen/binding/player_binding.dart';
 import 'package:audio_book/modules/playerScreen/view/player_view.dart';
+import 'package:audio_book/modules/profile/bindings/applock_binding.dart';
+import 'package:audio_book/modules/profile/bindings/help_binding.dart';
+import 'package:audio_book/modules/profile/bindings/plans_binding.dart';
+import 'package:audio_book/modules/profile/bindings/privacy_binding.dart';
+import 'package:audio_book/modules/profile/bindings/push_notification_binding.dart';
+import 'package:audio_book/modules/profile/view/applock_view.dart';
+import 'package:audio_book/modules/profile/view/helpsupport_view.dart';
+import 'package:audio_book/modules/profile/view/plans_view.dart';
+import 'package:audio_book/modules/profile/view/privacy_view.dart';
+import 'package:audio_book/modules/profile/view/push_notification_view.dart';
 import 'package:audio_book/modules/shell/binding/shell_binding.dart';
 import 'package:audio_book/modules/shell/view/shell_view.dart';
 import 'package:audio_book/modules/splash/controllers/splash_controller.dart';
@@ -62,5 +72,31 @@ class AppPages {
         page: () => TestView(),
       binding: TestBinding()
     ),
+    GetPage(
+        name: AppRoutes.appLock,
+        page: () => ApplockView(),
+      binding: ApplockBinding()
+    ),
+    GetPage(
+        name: AppRoutes.privacy,
+        page: () => PrivacyView(),
+      binding: PrivacyBinding()
+    ),
+    GetPage(
+        name: AppRoutes.plans,
+        page: () => PlansView(),
+      binding: PlansBinding()
+    ),
+    GetPage(
+        name: AppRoutes.help,
+        page: () => HelpSupportView(),
+      binding: HelpBinding()
+    ),
+     GetPage(
+        name: AppRoutes.pushNotification,
+        page: () => PushNotificationView(),
+      binding: PushNotificationBinding()
+    ),
+
   ];
 }

@@ -6,11 +6,16 @@ import 'package:audio_book/data/models/book_model.dart';
 import 'package:audio_book/data/models/category_model.dart';
 import 'package:audio_book/data/models/chapter_model.dart';
 import 'package:audio_book/data/models/review_model.dart';
+import 'package:audio_book/data/service/hiveServices/hive_service.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../dumydata/dummy.dart';
 import '../models/review_model.dart';
 
 
 class BookRepository {
+  final HiveService hive = Get.find<HiveService>();
+
   List<BookModel> getNewReleases(){
     return newReleases;
   }
@@ -23,7 +28,6 @@ class BookRepository {
   List<BookModel> getRecommended(){
     return recommended;
   }
-
   List<BookModel> getBanners(){
     return banners;
   }
@@ -38,6 +42,16 @@ class BookRepository {
 }
 List<ReviewModel> getTopReviews(){
     return dummyReviews;
+}
+//Hive Methode
+Future<void> putDownload(BookModel book)async{
+await hive.saveDownloads(book);
+}
+List<BookModel> getDownloads(){
+    return hive.getDownloads();
+}
+Future <void> deleteDownloads(String id)async{
+await hive.deleteDownloads(id);
 }
 
 }

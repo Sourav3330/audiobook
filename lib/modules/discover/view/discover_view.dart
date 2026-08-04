@@ -82,7 +82,8 @@ class DiscoverView extends GetView<DiscoverController> {
                   var data = controller.recommended[index];
                   return InkWell(
                       onTap: (){
-                        controller.viewSong(data);
+                        controller.repository.putDownload(data);
+                       // controller.viewSong(data);
                       },
                       child: HorizontalBookCard(book: data));
                 },

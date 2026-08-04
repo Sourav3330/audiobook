@@ -1,17 +1,32 @@
 import 'package:flutter/foundation.dart';
+import 'package:hive_ce/hive_ce.dart';
+part 'book_model.g.dart';
 
+@HiveType(typeId: 1)
 class BookModel {
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final String author;
+  @HiveField(3)
   final String cover;
+  @HiveField(4)
   final String category;
+  @HiveField(5)
   final String description;
+  @HiveField(6)
   final String language;
+  @HiveField(7)
   final Duration duration;
+  @HiveField(8)
   final int totalChapters;
+  @HiveField(9)
   final double rating;
+  @HiveField(10)
   final int totalReviews;
+
 
   const BookModel({
     required this.id,
