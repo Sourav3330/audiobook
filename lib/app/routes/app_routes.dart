@@ -14,4 +14,5 @@ class AppRoutes {
   static const String plans = '/plans';
   static const String help = '/help';
   static const String pushNotification = '/pushNotification';
+  static const String themeSelection = '/ThemeSelection';
 }

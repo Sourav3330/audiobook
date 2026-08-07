@@ -49,12 +49,19 @@ class ProfileView extends GetView<ProfileController> {
               ),
                CommonSettingsCard(
                 leadingIcon: Icons.dark_mode_outlined,
-                trailing: Transform.scale(
+                trailing:
+                Transform.scale(
                     scale: 0.9,
-                    child: Switch(value: true, onChanged: (value){},)),
-                title: "Dark Mode",
+                    child: Obx(()=>
+                       Switch(value: controller.darkMode.value, onChanged: (value){
+                        controller.darkMode.value = value;
+                      },),
+                    )),
+                title: "Theme Mode",
                 description: "Switch between light and dark mode",
-                onTap: () {},
+                onTap: () {
+                  controller.goToTheme();
+                },
               ),
               SizedBox(height: AppSpacing.md,),
               Text(

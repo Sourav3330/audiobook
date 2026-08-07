@@ -1,3 +1,4 @@
+import 'package:audio_book/app/bindings/intial_binding.dart';
 import 'package:audio_book/app/routes/app_routes.dart';
 import 'package:audio_book/modules/auth/binding/auth_binding.dart';
 import 'package:audio_book/modules/auth/views/login_view.dart';
@@ -18,6 +19,7 @@ import 'package:audio_book/modules/profile/view/helpsupport_view.dart';
 import 'package:audio_book/modules/profile/view/plans_view.dart';
 import 'package:audio_book/modules/profile/view/privacy_view.dart';
 import 'package:audio_book/modules/profile/view/push_notification_view.dart';
+import 'package:audio_book/modules/profile/view/theme_selection_view.dart';
 import 'package:audio_book/modules/shell/binding/shell_binding.dart';
 import 'package:audio_book/modules/shell/view/shell_view.dart';
 import 'package:audio_book/modules/splash/controllers/splash_controller.dart';
@@ -96,6 +98,10 @@ class AppPages {
         name: AppRoutes.pushNotification,
         page: () => PushNotificationView(),
       binding: PushNotificationBinding()
+    ),
+    GetPage(
+        name: AppRoutes.themeSelection,
+        page: () => ThemeSelectionView(),
     ),
 
   ];
